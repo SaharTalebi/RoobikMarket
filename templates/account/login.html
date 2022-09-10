@@ -1,8 +1,9 @@
 {% extends '_base.html' %}
 
 {% load static %}
+{% load crispy_forms_tags %}
 
-{% block title %}Log In{% endblock title %}
+{% block title %}ورود{% endblock title %}
 
 {% block content %}
     <section class="inner-page" id="contact-page">
@@ -38,17 +39,14 @@
                             <div class="col-12 col-lg-7 pt-5 pt-md-0 align-self-center">
                                 <div class="title">وارد شوید</div>
                                 <p>با عضویت در سایت از همه امکانات سایت بهره مند شوید.</p>
-                                <div class="form-group">
-                                    <label for="email">پست الکترونیک :</label>
-                                    <input type="email" class="form-control" id="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">رمز عبور :</label>
-                                    <input type="password" class="form-control" id="password">
-                                </div>
-                                <div class="form-group">
-                                    <a href="profile/personal-info.html"><input type="submit" value="ورود به ناحیه کاربری" class="btn btn-success"></a>
-                                </div>
+                                <form action="{% url 'account_login' %}" method="POST">
+                                    {% csrf_token %}
+                                    {{form.username|as_crispy_field}}
+                                    {{form.password1|as_crispy_field}}
+                                    <div class="form-group">
+                                        <button class="btn btn-success">ورود به ناحیه کاربری</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

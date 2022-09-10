@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Third Party Apps
     'allauth',
     'allauth.account',
+    'crispy_forms',
 
     # Local Apps
     'accounts',
@@ -140,5 +141,14 @@ STATICFILES_DIRS = [str(BASE_DIR.joinpath('static/'))]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+ACCOUNT_FORMS = {
+    'login': 'accounts.forms.MyCustomLoginForm',
+    'signup': 'accounts.forms.MyCustomSignupForm',
+    }
+
+LOGIN_REDIRECT_URL = 'account_signup'
 
 
