@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     # Local Apps
     'accounts',
+    'pages',
 ]
 
 MIDDLEWARE = [
@@ -149,6 +150,6 @@ ACCOUNT_FORMS = {
     'signup': 'accounts.forms.MyCustomSignupForm',
     }
 
-LOGIN_REDIRECT_URL = 'account_signup'
+# LOGIN_REDIRECT_URL = 'account_signup'
 
 
