@@ -28,6 +28,7 @@ class MyCustomLoginForm(LoginForm):
                 }
             )
         )
+        
     def save(self, request=None):
         # Ensure you call the parent class's save.
         # .save() returns a User object.
@@ -53,18 +54,18 @@ class MyCustomSignupForm(SignupForm):
                 }
             ),
         )
-        self.fields['email'] = forms.EmailField(
-            label='پست الکترونیک',
-            widget=forms.EmailInput(
-                attrs={
-                    'class': "form-control",
-                    # 'placeholder': 'ایمیل',
-                    'dir': 'rtl',
-                    'autocomplete':'off',
-                    'required': 'True'
-                },  
-            )
-        )
+        # self.fields['email'] = forms.EmailField(
+        #     label='پست الکترونیک',
+        #     widget=forms.EmailInput(
+        #         attrs={
+        #             'class': "form-control",
+        #             # 'placeholder': 'ایمیل',
+        #             'dir': 'rtl',
+        #             'autocomplete':'off',
+        #             'required': 'True'
+        #         },  
+        #     )
+        # )
         self.fields['password1'] = forms.CharField(
             label='رمز عبور',
             widget=forms.PasswordInput(

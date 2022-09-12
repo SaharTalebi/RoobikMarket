@@ -84,6 +84,7 @@ AUTHENTICATION_BACKENDS = (
     # `allauth` specific authentication methods, such as login by e-mail
     "allauth.account.auth_backends.AuthenticationBackend",
 )
+SITE_ID = 1
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -149,7 +150,13 @@ ACCOUNT_FORMS = {
     'login': 'accounts.forms.MyCustomLoginForm',
     'signup': 'accounts.forms.MyCustomSignupForm',
     }
+# ACCOUNT_EMAIL_VERIFICATION = 'none'
 
-# LOGIN_REDIRECT_URL = 'account_signup'
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUTN_AUTHENTICATION_METHOD = 'username'
+
+LOGIN_REDIRECT_URL = 'home'
+SIGNUP_REDIRECT_URL = 'home'
 
 
