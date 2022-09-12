@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{% static 'css/highlight.css'%}">
     <link rel="stylesheet" href="{% static 'css/nouislider.min.css'%}">
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/error-404.css'%}">
     <!-- /CSS Styles -->
 </head>
 <body>
@@ -302,7 +303,7 @@
                                                         </li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="./about.html">درباره ما<em class="droopmenu-topanim"></em></a></li>
+                                                <li><a href="{% url 'about' %}">درباره ما<em class="droopmenu-topanim"></em></a></li>
                                                 <li class="droopmenu-parent" aria-haspopup="true">
                                                     <a href="./products.html" aria-expanded="false">صفحات فروشگاه<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
                                                     <ul style="">
@@ -314,8 +315,8 @@
                                                 <li class="droopmenu-parent" aria-haspopup="true">
                                                     <a href="./contact.html" aria-expanded="false">تماس با فروشگاه<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
                                                     <ul style="">
-                                                        <li><a href="./faq.html">سوالات متداول</a></li>
-                                                        <li><a href="./contact.html">تماس با ما</a></li>
+                                                        <li><a href="{% url 'faq' %}">سوالات متداول</a></li>
+                                                        <li><a href="{% url 'contact' %}">تماس با ما</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="droopmenu-parent" aria-haspopup="true">
@@ -336,7 +337,7 @@
                                                         <li><a href="./register.html">عضویت در سایت</a></li>
                                                         <li><a href="./reset-password.html">بازگردانی رمز عبور</a></li>
                                                         <li class="dm-bottom-separator"></li>
-                                                        <li><a href="./error-404.html">خطای 404</a></li>
+                                                        <li><a href="{% url 'error404' %}">خطای 404</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="droopmenu-parent" aria-haspopup="true">

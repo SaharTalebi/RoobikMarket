@@ -10,3 +10,9 @@ def about_us_view(request):
 
 def contact_us_view(request):
     return render(request, 'pages/contact.html')
+
+def faq_view(request):
+    return render(request, 'pages/faq.html')
+
+def error_404_view(request):
+    return render(request, 'pages/error404.html')
