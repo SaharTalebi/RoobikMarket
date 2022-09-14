@@ -157,7 +157,7 @@
                                                                             <li><a href="./products.html">لوازم دکوری</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
-                                                                            <li><img src="assets/images/megamenu/megamenu-image2.png" alt=""></li>
+                                                                            <li><img src="{% static 'images/megamenu/megamenu-image2.png' %}" alt=""></li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -192,7 +192,7 @@
                                                                             <li><a href="products.html">لباس زیر</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
-                                                                            <li><img src="assets/images/megamenu/megamenu-image3.png" alt=""></li>
+                                                                            <li><img src="{% static 'images/megamenu/megamenu-image3.png' %}" alt=""></li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -229,7 +229,7 @@
                                                                             <li><a href="./products.html">خاتم و منبت</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
-                                                                            <li><img src="assets/images/megamenu/megamenu-image4.png" alt=""></li>
+                                                                            <li><img src="{% static 'images/megamenu/megamenu-image4.png' %}" alt=""></li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -264,7 +264,7 @@
                                                                             <li><a href="products.html">آیسان</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
-                                                                            <li><img src="assets/images/megamenu/megamenu-image5.png" alt=""></li>
+                                                                            <li><img src="{% static 'images/megamenu/megamenu-image5.png' %}" alt=""></li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -295,7 +295,7 @@
                                                                             <li><a href="./products.html">سایر</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
-                                                                            <li><img src="assets/images/megamenu/megamenu-image6.png" alt=""></li>
+                                                                            <li><img src="{% static 'images/megamenu/megamenu-image6.png' %}" alt=""></li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -320,10 +320,10 @@
                                                     </ul>
                                                 </li>
                                                 <li class="droopmenu-parent" aria-haspopup="true">
-                                                    <a href="./blog.html" aria-expanded="false">بلاگ آموزشی<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
+                                                    <a href="{% url 'blog' %}" aria-expanded="false">بلاگ آموزشی<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
                                                     <ul style="">
-                                                        <li><a href="./blog.html">آرشیو مطالب</a></li>
-                                                        <li><a href="./blog-post.html">داخلی بلاگ</a></li>
+                                                        <li><a href="{% url 'blog' %}">آرشیو مطالب</a></li>
+                                                        {% comment %} <li><a href="./blog-post.html">داخلی بلاگ</a></li> {% endcomment %}
                                                     </ul>
                                                 </li>
                                                 <li class="droopmenu-parent" aria-haspopup="true">

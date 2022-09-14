@@ -41,8 +41,11 @@
                                 <p>با عضویت در سایت از همه امکانات سایت بهره مند شوید.</p>
                                 <form action="{% url 'account_login' %}" method="POST">
                                     {% csrf_token %}
-                                    {{form.username|as_crispy_field}}
-                                    {{form.password1|as_crispy_field}}
+                                    {{form.errors}}
+                                    {% comment %} {{form|crispy}} {% endcomment %}
+
+                                    {{form.login|as_crispy_field}}
+                                    {{form.password|as_crispy_field}} 
                                     <div class="form-group">
                                         <button class="btn btn-success">ورود به ناحیه کاربری</button>
                                     </div>

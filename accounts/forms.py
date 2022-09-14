@@ -5,7 +5,7 @@ class MyCustomLoginForm(LoginForm):
 
     def __init__(self, *args, **kwargs):
         super(MyCustomLoginForm, self).__init__(*args, **kwargs)
-        self.fields['username'] = forms.CharField(
+        self.fields['login'] = forms.CharField(
             label='نام کاربری :',
             widget=forms.TextInput(
                 attrs={
@@ -17,7 +17,7 @@ class MyCustomLoginForm(LoginForm):
             ),
         )
 
-        self.fields['password1'] = forms.CharField(
+        self.fields['password'] = forms.CharField(
             label='رمز عبور :',
             widget=forms.PasswordInput(
                 attrs={
@@ -29,14 +29,14 @@ class MyCustomLoginForm(LoginForm):
             )
         )
         
-    def save(self, request=None):
-        # Ensure you call the parent class's save.
-        # .save() returns a User object.
-        user = super(MyCustomLoginForm, self).save(request)
-        # Add your own processing here.
-        print(user.username)
-        # You must return the original result.
-        return user
+    # def save(self, request=None):
+    #     # Ensure you call the parent class's save.
+    #     # .save() returns a User object.
+    #     user = super(MyCustomLoginForm, self).save(request)
+    #     # Add your own processing here.
+    #     print(user.username)
+    #     # You must return the original result.
+    #     return user
 
 
 class MyCustomSignupForm(SignupForm):
@@ -90,11 +90,11 @@ class MyCustomSignupForm(SignupForm):
         )
 
 
-    def save(self, request=None):
-        # Ensure you call the parent class's save.
-        # .save() returns a User object.
-        user = super(MyCustomSignupForm, self).save(request)
-        # Add your own processing here.
-        print(user.username)
-        # You must return the original result.
-        return user
+    # def save(self, request=None):
+    #     # Ensure you call the parent class's save.
+    #     # .save() returns a User object.
+    #     user = super(MyCustomSignupForm, self).save(request)
+    #     # Add your own processing here.
+    #     print(user.username)
+    #     # You must return the original result.
+    #     return user

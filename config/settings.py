@@ -37,15 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
     # Third Party Apps
     'allauth',
     'allauth.account',
     'crispy_forms',
+    'ckeditor',
 
     # Local Apps
     'accounts',
     'pages',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -137,6 +140,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('static/'))]
 
+MEDIA_URL = 'media/'
+MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -150,11 +156,12 @@ ACCOUNT_FORMS = {
     'login': 'accounts.forms.MyCustomLoginForm',
     'signup': 'accounts.forms.MyCustomSignupForm',
     }
-# ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_EMAIL_REQUIRED = False
 ACCOUTN_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_SESSION_REMEMBER = False
 
 LOGIN_REDIRECT_URL = 'home'
 SIGNUP_REDIRECT_URL = 'home'
