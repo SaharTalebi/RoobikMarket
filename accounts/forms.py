@@ -28,15 +28,6 @@ class MyCustomLoginForm(LoginForm):
                 }
             )
         )
-        
-    # def save(self, request=None):
-    #     # Ensure you call the parent class's save.
-    #     # .save() returns a User object.
-    #     user = super(MyCustomLoginForm, self).save(request)
-    #     # Add your own processing here.
-    #     print(user.username)
-    #     # You must return the original result.
-    #     return user
 
 
 class MyCustomSignupForm(SignupForm):

@@ -42,23 +42,25 @@
                                         <div class="container px-2 pb-3">
                                             <div class="row row-cols-1 row-cols-md-2">
                                                 {% for post in posts %}
+                                                    {% if post.is_active %}
                                                     <!-- Blog Post -->
                                                     <div class="col">
                                                         <div class="blog-post-box" data-aos="fade-up" data-aos-duration="1000">
-                                                            <a href="{% url 'blog_post_detail' post.id %}"><img src="{{post.blog_image.url}}" alt=""></a>
+                                                            <a href="{{post.get_absolute_url}}"><img src="{{post.blog_image.url}}" alt=""></a>
                                                             <div class="details py-3 px-4">
                                                                 <div class="post-date">ارسال شده در {{post.datetime_created}}</div>
-                                                                <a href="{% url 'blog_post_detail' post.id %}">
+                                                                <a href="{{post.get_absolute_url}}">
                                                                     <h2 class="post-title">{{post.title}}</h2>
                                                                 </a>
-                                                                <a href="{% url 'blog_post_detail' post.id %}">
+                                                                <a href="{{post.get_absolute_url}}">
                                                                     <div class="post-description">{{post.description|safe|truncatewords:20}}</div>
                                                                 </a>
-                                                                <div class="read-more"><a href="{% url 'blog_post_detail' post.id %}" class="hvr-icon-back">بیشتر خوانید <i class="fa fa-arrow-left hvr-icon"></i></a></div>
+                                                                <div class="read-more"><a href="{{post.get_absolute_url}}" class="hvr-icon-back">بیشتر خوانید <i class="fa fa-arrow-left hvr-icon"></i></a></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <!-- Blog Post -->
+                                                    {% endif %}
                                                 {% endfor %}
                                             </div>
                                         </div>
