@@ -42,9 +42,8 @@
                                 <form action="{% url 'account_login' %}" method="POST">
                                     {% csrf_token %}
                                     {{form.errors}}
-                                    {% comment %} {{form|crispy}} {% endcomment %}
-
                                     {{form.login|as_crispy_field}}
+                                    {{form.email|as_crispy_field}}
                                     {{form.password|as_crispy_field}} 
                                     <div class="form-group">
                                         <button class="btn btn-success">ورود به ناحیه کاربری</button>

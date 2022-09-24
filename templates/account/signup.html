@@ -42,8 +42,8 @@
                                 <form action="" method="POST">
                                     {% csrf_token %}
                                     <div class="form-group">
-                                        {{form.username|as_crispy_field}}
-                                        {% comment %} {{form.email|as_crispy_field}} {% endcomment %}
+                                        {% comment %} {{form.username|as_crispy_field}} {% endcomment %}
+                                        {{form.email|as_crispy_field}}
                                         {{form.password1|as_crispy_field}}
                                         {{form.password2|as_crispy_field}}
                                     <div class="form-group">

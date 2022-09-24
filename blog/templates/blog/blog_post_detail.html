@@ -153,7 +153,7 @@
                                                                 <form action="{% url 'blog_post_detail' post_detail.id %}" method="post">
                                                                     {% csrf_token %}
                                                                     <div id="send-comment-form">
-                                                                        <p>شما می توانید با نام کاربری {{user.username}} و آدرس پست الکترونیک {{user.email}} دیدگاه خود را درباره این پست بیان کنید.</p>
+                                                                        <p>شما می توانید با نام کاربری <strong>{{user.username}}</strong> و آدرس پست الکترونیک <strong>{{user.email}}</strong> دیدگاه خود را درباره این پست بیان کنید.</p>
                                                                         <div class="row">
                                                                             {% comment %} <div class="col-12 px-3 pl-md-1 col-md-6"> {% endcomment %}
                                                                                 {% comment %} <div class="form-group my-1"> {% endcomment %}

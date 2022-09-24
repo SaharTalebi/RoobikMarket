@@ -5,9 +5,24 @@ class MyCustomLoginForm(LoginForm):
 
     def __init__(self, *args, **kwargs):
         super(MyCustomLoginForm, self).__init__(*args, **kwargs)
+
         self.fields['login'] = forms.CharField(
             label='نام کاربری :',
+            # defualt= 'sahar',
             widget=forms.TextInput(
+                attrs={
+                    'class': "form-control",
+                    # 'placeholder': 'نام کاربری',
+                    'dir': 'rtl',
+                    'autocomplete': 'off',
+                    
+                }
+            ),
+        )
+
+        self.fields['email'] = forms.EmailField(
+            label='پست الکترونیک :',
+            widget=forms.EmailInput(
                 attrs={
                     'class': "form-control",
                     # 'placeholder': 'نام کاربری',
@@ -33,30 +48,32 @@ class MyCustomLoginForm(LoginForm):
 class MyCustomSignupForm(SignupForm):
     def __init__(self, *args, **kwargs):
         super(MyCustomSignupForm, self).__init__(*args, **kwargs)
-        self.fields['username'] = forms.CharField(
-            label='نام کاربری',
-            required= False,
-            widget=forms.TextInput(
-                attrs={
-                    'class': "form-control",
-                    # 'placeholder': 'نام کاربری',
-                    'dir': 'rtl',
-                    'autocomplete': 'off'
-                }
-            ),
-        )
-        # self.fields['email'] = forms.EmailField(
-        #     label='پست الکترونیک',
-        #     widget=forms.EmailInput(
+
+        # self.fields['username'] = forms.CharField(
+        #     label='نام کاربری',
+        #     required= False,
+        #     widget=forms.TextInput(
         #         attrs={
         #             'class': "form-control",
-        #             # 'placeholder': 'ایمیل',
+        #             # 'placeholder': 'نام کاربری',
         #             'dir': 'rtl',
-        #             'autocomplete':'off',
-        #             'required': 'True'
-        #         },  
-        #     )
+        #             'autocomplete': 'off',
+        #             'required': 'False',
+        #         }
+        #     ),
         # )
+        self.fields['email'] = forms.EmailField(
+            label='پست الکترونیک',
+            widget=forms.EmailInput(
+                attrs={
+                    'class': "form-control",
+                    # 'placeholder': 'ایمیل',
+                    'dir': 'rtl',
+                    'autocomplete':'off',
+                    'required': 'True'
+                },  
+            )
+        )
         self.fields['password1'] = forms.CharField(
             label='رمز عبور',
             widget=forms.PasswordInput(

@@ -17,3 +17,4 @@ class BlogCommentAdmin(admin.ModelAdmin):
     list_display = ('author', 'post', 'datetime_created', 'is_active')
     list_display_links = ('author',)
     list_editable = ('is_active',)
+    list_filter = ('post', 'author', 'is_active')
