@@ -30,9 +30,7 @@ class CommentForm(forms.Form):
         widget=forms.Textarea(
             attrs={
                 'class': 'form-control', 
-                # 'placeholder': 'متن دیدگاه',
                 'dir': 'rtl',
                 'rows': '4',
-                'dir': 'rtl',
             })
     )
