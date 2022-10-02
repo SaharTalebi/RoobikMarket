@@ -247,14 +247,14 @@
                                             <div class="col">
                                                 <!-- Product Box -->
                                                 <div class="product-box">
-                                                    <a href="./product.html"><div class="image" style="background-image: url({{product.product_image.url}});"></div></a>
+                                                    <a href="{{product.get_absolute_url}}"><div class="image" style="background-image: url({{product.product_image.url}});"></div></a>
                                                     <div class="details p-3">
                                                         <div class="category">
-                                                            <a href="./products.html">گوشی موبایل</a>
+                                                            <a href="{{product.get_absolute_url}}">گوشی موبایل</a>
                                                             &nbsp;/&nbsp;
-                                                            <a href="./products.html">سامسونگ</a>
+                                                            <a href="{{product.get_absolute_url}}">سامسونگ</a>
                                                         </div>
-                                                        <a href="./product.html"><h2>{{product.title}}</h2></a>
+                                                        <a href="{{product.get_absolute_url}}"><h2>{{product.title}}</h2></a>
                                                         <div class="price">{{product.price}} تومان</div>
                                                         <div class="rate">
                                                             <i class="fa fa-star-half-alt"></i>
