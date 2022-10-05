@@ -64,10 +64,12 @@
                         </a>
                     </div>
                     <div class="col-12 col-md-5 col-xl-6">
-                        <div id="search-bar">
-                            <i class="fa fa-search"></i>
-                            <input type="text" placeholder="جستجو کنید...">
-                        </div>
+                        <form action="" method="get">
+                            <div id="search-bar">
+                                <button type="submit" style="background:None; border:None;"><i class="fa fa-search"></i></button>
+                                <input type="text" name="query" placeholder="جستجو کنید...">
+                            </div>
+                        </form>
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="row">
@@ -112,30 +114,27 @@
                                                                 <div class="droopmenu-tabcontent">
                                                                     <div class="droopmenu-row">
                                                                         <ul class="droopmenu-col droopmenu-col4">
-                                                                            <li><h4>صوت</h4></li>
-                                                                            <li><a href="{% url 'products' %}">رادیو دیجیتال</a></li>
-                                                                            <li><a href="{% url 'products' %}">ضبط صوت</a></li>
-                                                                            <li><a href="{% url 'products' %}">اسپیکر</a></li>
-                                                                            <li><a href="{% url 'products' %}">هدفون</a></li>
-                                                                            <li><a href="{% url 'products' %}">میکروفن</a></li>
+                                                                            <li><h4>کامپیوتر</h4></li>
+                                                                            <li><a href="./products.html">لب تاپ</a></li>
+                                                                            <li><a href="./products.html">نوت بوک</a></li>
+                                                                            <li><a href="./products.html">کامپیوتر رومیزی</a></li>
+                                                                            <li><a href="./products.html">جانبی کامپیوتر</a></li>
                                                                             <li><h4>گوشی موبایل</h4></li>
-                                                                            <li><a href="{% url 'products' %}">گوشی موبایل</a></li>
-                                                                            <li><a href="{% url 'products' %}">تبلت</a></li>
-                                                                            <li><a href="{% url 'products' %}">کیف و کاور</a></li>
-                                                                            <li><a href="{% url 'products' %}">جانبی موبایل</a></li>
+                                                                            <li><a href="./products.html">گوشی موبایل</a></li>
+                                                                            <li><a href="./products.html">تبلت</a></li>
+                                                                            <li><a href="./products.html">کیف و کاور</a></li>
+                                                                            <li><a href="./products.html">جانبی موبایل</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4">
+                                                                            <li><h4>صوت</h4></li>
+                                                                            <li><a href="./products.html">لب تاپ</a></li>
+                                                                            <li><a href="./products.html">نوت بوک</a></li>
+                                                                            <li><a href="./products.html">کامپیوتر رومیزی</a></li>
+                                                                            <li><a href="./products.html">ماوس و کیبورد</a></li>
                                                                             <li><h4>تصویر</h4></li>
-                                                                            <li><a href="{% url 'products' %}">ال سی دی</a></li>
-                                                                            <li><a href="{% url 'products' %}">تلویزیون</a></li>
-                                                                            <li><a href="{% url 'products' %}">گیرنده دیجیتال</a></li>
-                                                                            <li><h4>کنسول بازی</h4></li>
-                                                                            <li><a href="{% url 'products' %}">پلی استیشن 4</a></li>
-                                                                            <li><a href="{% url 'products' %}">پلی استیشن 3</a></li>
-                                                                            <li><a href="{% url 'products' %}">پلی استیشن 2</a></li>
-                                                                            <li><a href="{% url 'products' %}">ایکس باکس 360</a></li>
-                                                                            <li><a href="{% url 'products' %}">نینتندو</a></li>
-                                                                            <li><a href="{% url 'products' %}">بازی کامپیوتری</a></li>
+                                                                            <li><a href="products.html">ال سی دی</a></li>
+                                                                            <li><a href="products.html">تلویزیون</a></li>
+                                                                            <li><a href="products.html">گیرنده دیجیتال</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
                                                                             <li><img src="{% static 'images/megamenu/megamenu-image1.png' %}" alt=""></li>
@@ -143,32 +142,32 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
+    
                                                             <div class="droopmenu-tabsection" id="droopmenutab11">
                                                                 <a class="droopmenu-tabheader" href="#">لوازم منزل</a>
                                                                 <div class="droopmenu-tabcontent">
                                                                     <div class="droopmenu-row">
                                                                         <ul class="droopmenu-col droopmenu-col4">
                                                                             <li><h4>مبلمان</h4></li>
-                                                                            <li><a href="{% url 'products' %}">مبلمان اتاق</a></li>
-                                                                            <li><a href="{% url 'products' %}">مبل تکی</a></li>
-                                                                            <li><a href="{% url 'products' %}">مبلمان کودک</a></li>
-                                                                            <li><a href="{% url 'products' %}">میز ناهارخوری</a></li>
-                                                                            <li><a href="{% url 'products' %}">مبلمان اداری</a></li>
-                                                                            <li><a href="{% url 'products' %}">مبل تخت شو</a></li>
-                                                                            <li><a href="{% url 'products' %}">مبلمان راحتی</a></li>
-                                                                            <li><a href="{% url 'products' %}">گل میز</a></li>
+                                                                            <li><a href="./products.html">مبلمان اتاق</a></li>
+                                                                            <li><a href="./products.html">مبل تکی</a></li>
+                                                                            <li><a href="./products.html">مبلمان کودک</a></li>
+                                                                            <li><a href="./products.html">میز ناهارخوری</a></li>
+                                                                            <li><a href="./products.html">مبلمان اداری</a></li>
+                                                                            <li><a href="./products.html">مبل تخت شو</a></li>
+                                                                            <li><a href="./products.html">مبلمان راحتی</a></li>
+                                                                            <li><a href="./products.html">گل میز</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4">
                                                                             <li><h4>دکوراسیون</h4></li>
-                                                                            <li><a href="{% url 'products' %}">تابلوهای دکوری</a></li>
-                                                                            <li><a href="{% url 'products' %}">استیکر</a></li>
-                                                                            <li><a href="{% url 'products' %}">دیوارپوش</a></li>
-                                                                            <li><a href="{% url 'products' %}">کاغذ دیواری</a></li>
-                                                                            <li><a href="{% url 'products' %}">کفپوش</a></li>
-                                                                            <li><a href="{% url 'products' %}">موکت</a></li>
-                                                                            <li><a href="{% url 'products' %}">لوستر</a></li>
-                                                                            <li><a href="{% url 'products' %}">لوازم دکوری</a></li>
+                                                                            <li><a href="./products.html">تابلوهای دکوری</a></li>
+                                                                            <li><a href="./products.html">استیکر</a></li>
+                                                                            <li><a href="./products.html">دیوارپوش</a></li>
+                                                                            <li><a href="./products.html">کاغذ دیواری</a></li>
+                                                                            <li><a href="./products.html">کفپوش</a></li>
+                                                                            <li><a href="./products.html">موکت</a></li>
+                                                                            <li><a href="./products.html">لوستر</a></li>
+                                                                            <li><a href="./products.html">لوازم دکوری</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
                                                                             <li><img src="{% static 'images/megamenu/megamenu-image2.png' %}" alt=""></li>
@@ -176,7 +175,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
+    
                                                             <div class="droopmenu-tabsection" id="droopmenutab12">
                                                                 <a class="droopmenu-tabheader" href="#">مد  و پوشاک</a>
                                                                 <div class="droopmenu-tabcontent">
@@ -211,36 +210,36 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
+    
                                                             <div class="droopmenu-tabsection" id="droopmenutab13">
                                                                 <a class="droopmenu-tabheader" href="#">فرهنگ و هنر</a>
                                                                 <div class="droopmenu-tabcontent">
                                                                     <div class="droopmenu-row">
                                                                         <ul class="droopmenu-col droopmenu-col4">
                                                                             <li><h4>آلات موسیقی</h4></li>
-                                                                            <li><a href="{% url 'products' %}">گیتار</a></li>
-                                                                            <li><a href="{% url 'products' %}">ویالون</a></li>
-                                                                            <li><a href="{% url 'products' %}">ارگ</a></li>
-                                                                            <li><a href="{% url 'products' %}">پیانو</a></li>
-                                                                            <li><a href="{% url 'products' %}">سنتور</a> </li>
-                                                                            <li><a href="{% url 'products' %}">ساز دهنی</a></li>
-                                                                            <li><a href="{% url 'products' %}">گیتار برقی</a></li>
-                                                                            <li><a href="{% url 'products' %}">درام</a></li>
-                                                                            <li><a href="{% url 'products' %}">تجهیزات استدیو</a></li>
-                                                                            <li><a href="{% url 'products' %}">جانبی موسیقی</a></li>
+                                                                            <li><a href="./products.html">گیتار</a></li>
+                                                                            <li><a href="./products.html">ویالون</a></li>
+                                                                            <li><a href="./products.html">ارگ</a></li>
+                                                                            <li><a href="./products.html">پیانو</a></li>
+                                                                            <li><a href="./products.html">سنتور</a> </li>
+                                                                            <li><a href="./products.html">ساز دهنی</a></li>
+                                                                            <li><a href="./products.html">گیتار برقی</a></li>
+                                                                            <li><a href="./products.html">درام</a></li>
+                                                                            <li><a href="./products.html">تجهیزات استدیو</a></li>
+                                                                            <li><a href="./products.html">جانبی موسیقی</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4">
                                                                             <li><h4>صنایع دستی</h4></li>
-                                                                            <li><a href="{% url 'products' %}">کالاهای مسی</a></li>
-                                                                            <li><a href="{% url 'products' %}">معرق</a></li>
-                                                                            <li><a href="{% url 'products' %}">سفال</a></li>
-                                                                            <li><a href="{% url 'products' %}">لعلینه</a> </li>
-                                                                            <li><a href="{% url 'products' %}">محصولات چرمی</a></li>
-                                                                            <li><a href="{% url 'products' %}">تابلو و ساعت</a></li>
-                                                                            <li><a href="{% url 'products' %}">میناکاری</a></li>
-                                                                            <li><a href="{% url 'products' %}">سوزن دوزی</a></li>
-                                                                            <li><a href="{% url 'products' %}">فیروزه کوبی</a></li>
-                                                                            <li><a href="{% url 'products' %}">خاتم و منبت</a></li>
+                                                                            <li><a href="./products.html">کالاهای مسی</a></li>
+                                                                            <li><a href="./products.html">معرق</a></li>
+                                                                            <li><a href="./products.html">سفال</a></li>
+                                                                            <li><a href="./products.html">لعلینه</a> </li>
+                                                                            <li><a href="./products.html">محصولات چرمی</a></li>
+                                                                            <li><a href="./products.html">تابلو و ساعت</a></li>
+                                                                            <li><a href="./products.html">میناکاری</a></li>
+                                                                            <li><a href="./products.html">سوزن دوزی</a></li>
+                                                                            <li><a href="./products.html">فیروزه کوبی</a></li>
+                                                                            <li><a href="./products.html">خاتم و منبت</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
                                                                             <li><img src="{% static 'images/megamenu/megamenu-image4.png' %}" alt=""></li>
@@ -248,34 +247,34 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
+    
                                                             <div class="droopmenu-tabsection" id="droopmenutab14">
                                                                 <a class="droopmenu-tabheader" href="#">سلامت و زیبایی</a>
                                                                 <div class="droopmenu-tabcontent">
                                                                     <div class="droopmenu-row">
                                                                         <ul class="droopmenu-col droopmenu-col4">
                                                                             <li><h4>محصولات</h4></li>
-                                                                            <li><a href="{% url 'products' %}">لوازم آرایشی</a></li>
-                                                                            <li><a href="{% url 'products' %}">شامپو</a></li>
-                                                                            <li><a href="{% url 'products' %}">نرم کننده</a></li>
-                                                                            <li><a href="{% url 'products' %}">برس و شانه</a></li>
-                                                                            <li><a href="{% url 'products' %}">انواع ماسک</a></li>
-                                                                            <li><a href="{% url 'products' %}">تقویت کننده مو</a></li>
-                                                                            <li><a href="{% url 'products' %}">رنگ مو</a></li>
-                                                                            <li><a href="{% url 'products' %}">دستمال کاغذی</a></li>
-                                                                            <li><a href="{% url 'products' %}">سایر محصولات</a></li>
+                                                                            <li><a href="products.html">لوازم آرایشی</a></li>
+                                                                            <li><a href="products.html">شامپو</a></li>
+                                                                            <li><a href="products.html">نرم کننده</a></li>
+                                                                            <li><a href="products.html">برس و شانه</a></li>
+                                                                            <li><a href="products.html">انواع ماسک</a></li>
+                                                                            <li><a href="products.html">تقویت کننده مو</a></li>
+                                                                            <li><a href="products.html">رنگ مو</a></li>
+                                                                            <li><a href="products.html">دستمال کاغذی</a></li>
+                                                                            <li><a href="products.html">سایر محصولات</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4">
                                                                             <li><h4>برند ها</h4></li>
-                                                                            <li><a href="{% url 'products' %}">صحت</a></li>
-                                                                            <li><a href="{% url 'products' %}">پرژک</a></li>
-                                                                            <li><a href="{% url 'products' %}">داروگر</a></li>
-                                                                            <li><a href="{% url 'products' %}">طبیعت</a></li>
-                                                                            <li><a href="{% url 'products' %}">گلرنگ</a></li>
-                                                                            <li><a href="{% url 'products' %}">گلنار</a></li>
-                                                                            <li><a href="{% url 'products' %}">کلیر</a></li>
-                                                                            <li><a href="{% url 'products' %}">شبنم</a></li>
-                                                                            <li><a href="{% url 'products' %}">آیسان</a></li>
+                                                                            <li><a href="products.html">صحت</a></li>
+                                                                            <li><a href="products.html">پرژک</a></li>
+                                                                            <li><a href="products.html">داروگر</a></li>
+                                                                            <li><a href="products.html">طبیعت</a></li>
+                                                                            <li><a href="products.html">گلرنگ</a></li>
+                                                                            <li><a href="products.html">گلنار</a></li>
+                                                                            <li><a href="products.html">کلیر</a></li>
+                                                                            <li><a href="products.html">شبنم</a></li>
+                                                                            <li><a href="products.html">آیسان</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
                                                                             <li><img src="{% static 'images/megamenu/megamenu-image5.png' %}" alt=""></li>
@@ -283,30 +282,30 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
+    
                                                             <div class="droopmenu-tabsection" id="droopmenutab15">
                                                                 <a class="droopmenu-tabheader" href="#">جواهرات</a>
                                                                 <div class="droopmenu-tabcontent">
                                                                     <div class="droopmenu-row">
                                                                         <ul class="droopmenu-col droopmenu-col4">
                                                                             <li><h4>زنانه</h4></li>
-                                                                            <li><a href="{% url 'products' %}">حلقه ازدواج</a></li>
-                                                                            <li><a href="{% url 'products' %}">ساعت</a></li>
-                                                                            <li><a href="{% url 'products' %}">گردنبند</a></li>
-                                                                            <li><a href="{% url 'products' %}">ساعت</a></li>
-                                                                            <li><a href="{% url 'products' %}">النگو</a></li>
-                                                                            <li><a href="{% url 'products' %}">انگشتر</a></li>
-                                                                            <li><a href="{% url 'products' %}">دستبند</a></li>
-                                                                            <li><a href="{% url 'products' %}">سایر</a></li>
+                                                                            <li><a href="./products.html">حلقه ازدواج</a></li>
+                                                                            <li><a href="./products.html">ساعت</a></li>
+                                                                            <li><a href="./products.html">گردنبند</a></li>
+                                                                            <li><a href="./products.html">ساعت</a></li>
+                                                                            <li><a href="./products.html">النگو</a></li>
+                                                                            <li><a href="./products.html">انگشتر</a></li>
+                                                                            <li><a href="./products.html">دستبند</a></li>
+                                                                            <li><a href="./products.html">سایر</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4">
                                                                             <li><h4>مرانه</h4></li>
-                                                                            <li><a href="{% url 'products' %}">ساعت</a></li>
-                                                                            <li><a href="{% url 'products' %}">دستبند</a></li>
-                                                                            <li><a href="{% url 'products' %}">گردنبند</a></li>
-                                                                            <li><a href="{% url 'products' %}">انگشتر</a></li>
-                                                                            <li><a href="{% url 'products' %}">عینک</a></li>
-                                                                            <li><a href="{% url 'products' %}">سایر</a></li>
+                                                                            <li><a href="./products.html">ساعت</a></li>
+                                                                            <li><a href="./products.html">دستبند</a></li>
+                                                                            <li><a href="./products.html">گردنبند</a></li>
+                                                                            <li><a href="./products.html">انگشتر</a></li>
+                                                                            <li><a href="./products.html">عینک</a></li>
+                                                                            <li><a href="./products.html">سایر</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
                                                                             <li><img src="{% static 'images/megamenu/megamenu-image6.png' %}" alt=""></li>
@@ -319,10 +318,10 @@
                                                 </li>
                                                 <li><a href="{% url 'about' %}">درباره ما<em class="droopmenu-topanim"></em></a></li>
                                                 <li class="droopmenu-parent" aria-haspopup="true">
-                                                    <a href="{% url 'products' %}" aria-expanded="false">صفحات فروشگاه<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
+                                                    <a href="" aria-expanded="false">صفحات فروشگاه<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
                                                     <ul style="">
-                                                        <li><a href="{% url 'products' %}">محصولات <sup>(کاشی کاری)</sup></a></li>
-                                                        <li><a href="{% url 'products_list' %}">محصولات <sup>(لیست)</sup></a></li>
+                                                        <li><a href="{% url 'products' %}?type=tile">محصولات <sup>(کاشی کاری)</sup></a></li>
+                                                        <li><a href="{% url 'products' %}?type=list">محصولات <sup>(لیست)</sup></a></li>
                                                         <li><a href="./products.html">جزئیات محصول</a></li>
                                                     </ul>
                                                 </li>
@@ -337,7 +336,7 @@
                                                     <a href="{% url 'blog' %}" aria-expanded="false">بلاگ آموزشی<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
                                                     <ul style="">
                                                         <li><a href="{% url 'blog' %}">آرشیو مطالب</a></li>
-                                                        {% comment %} <li><a href="./blog-post.html">داخلی بلاگ</a></li> {% endcomment %}
+                                                        <li><a href="./blog-post.html">داخلی بلاگ</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="droopmenu-parent" aria-haspopup="true">
@@ -387,13 +386,13 @@
                 <div class="col-6 col-sm-4 col-lg-2">
                     <div class="title">دسترسی سریع</div>
                     <ul>
-                        <li><a href="./blog.html">بلاگ آموزشی</a></li>
-                        <li><a href="./faq.html">راهنمای خرید</a></li>
-                        <li><a href="./faq.html">شیوه های پرداخت</a></li>
-                        <li><a href="./contact.html">پیگیری سفارش</a></li>
-                        <li><a href="./faq.html">سوالات متداول</a></li>
-                        <li><a href="./about.html">درباره ما</a></li>
-                        <li><a href="./contact.html">تماس با ما</a></li>
+                        <li><a href="{% url 'blog' %}">بلاگ آموزشی</a></li>
+                        <li><a href="{% url 'faq' %}">راهنمای خرید</a></li>
+                        <li><a href="{% url 'faq' %}">شیوه های پرداخت</a></li>
+                        <li><a href="{% url 'contact' %}">پیگیری سفارش</a></li>
+                        <li><a href="{% url 'faq' %}">سوالات متداول</a></li>
+                        <li><a href="{% url 'about' %}">درباره ما</a></li>
+                        <li><a href="{% url 'contact' %}">تماس با ما</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-sm-4 col-lg-2">
@@ -411,8 +410,8 @@
                 <div class="col-6 col-sm-4 col-lg-2 d-none d-sm-inline-block">
                     <div class="title">ناحیه کاربری</div>
                     <ul>
-                        <li><a href="./login.html">ورود به سایت</a></li>
-                        <li><a href="./register.html">عضویت در سایت</a></li>
+                        <li><a href="{% url 'account_login' %}">ورود به سایت</a></li>
+                        <li><a href="{% url 'account_signup' %}">عضویت در سایت</a></li>
                         <li><a href="./reset-password.html">بازیابی رمز عبور</a></li>
                         <li><a href="./cart.html">سبد خرید</a></li>
                         <li><a href="./checkout.html">پیش فاکتور</a></li>

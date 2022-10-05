@@ -2,11 +2,25 @@ from django.shortcuts import render
 
 from .forms import ContactUsForm
 from .models import ContactUs
+from product.models import Product
+from blog.models import BlogPost
+
 
 # Create your views here.
 
 def home_page_view(request):
-    return render(request, 'pages/home.html')
+    featured_products = Product.objects.all()[0:4]
+    on_sale_products = Product.objects.all()[0:4]
+    most_visited_products = Product.objects.all()[0:4]
+    blog_posts = BlogPost.objects.all()[0:3]
+
+    context ={
+        'featured_products': featured_products,
+        'on_sale_products': on_sale_products,
+        'most_visited_products': most_visited_products,
+        'blog_posts': blog_posts,
+    }
+    return render(request, 'pages/home.html', context)
 
 def about_us_view(request):
     return render(request, 'pages/about.html')

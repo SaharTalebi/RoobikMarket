@@ -45,24 +45,30 @@
                                     <!-- Slides -->
                                     <li id="1" class="swiper-slide">
                                         <a href="{{product.product_image.url}}" itemprop="contentUrl" data-size="900x710">
-                                            <img src="{{product.product_image.url}}" itemprop="thumbnail" alt="گوشی موبایل سامسونگ مدل Galaxy A21s" />
+                                            <img src="{{product.product_image.url}}" itemprop="thumbnail" alt="" />
                                         </a>
                                     </li>
-                                    <li id="1" class="swiper-slide">
-                                        <a href="{{product.product_image1.url}}" itemprop="contentUrl" data-size="900x710">
-                                            <img src="{{product.product_image1.url}}" itemprop="thumbnail" alt="گوشی موبایل سامسونگ مدل Galaxy A21s" />
-                                        </a>
-                                    </li>
-                                    <li id="1" class="swiper-slide">
-                                        <a href="{{product.product_image2.url}}" itemprop="contentUrl" data-size="900x710">
-                                            <img src="{{product.product_image2.url}}" itemprop="thumbnail" alt="گوشی موبایل سامسونگ مدل Galaxy A21s" />
-                                        </a>
-                                    </li>
-                                    <li id="1" class="swiper-slide">
-                                        <a href="{{product.product_image3.url}}" itemprop="contentUrl" data-size="900x710">
-                                            <img src="{{product.product_image3.url}}" itemprop="thumbnail" alt="گوشی موبایل سامسونگ مدل Galaxy A21s" />
-                                        </a>
-                                    </li>
+                                    {% if product.product_image1 %}
+                                        <li id="1" class="swiper-slide">
+                                            <a href="{{product.product_image1.url}}" itemprop="contentUrl" data-size="900x710">
+                                                <img src="{{product.product_image1.url}}" itemprop="thumbnail" alt="" />
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                    {% if product.product_image2 %}
+                                        <li id="1" class="swiper-slide">
+                                            <a href="{{product.product_image2.url}}" itemprop="contentUrl" data-size="900x710">
+                                                <img src="{{product.product_image2.url}}" itemprop="thumbnail" alt="" />
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                    {% if product.product_image3 %}
+                                        <li id="1" class="swiper-slide">
+                                            <a href="{{product.product_image3.url}}" itemprop="contentUrl" data-size="900x710">
+                                                <img src="{{product.product_image3.url}}" itemprop="thumbnail" alt="" />
+                                            </a>
+                                        </li>
+                                    {% endif %}
                                     <!-- /Slides -->
                                 </ul>
                                 

@@ -5,6 +5,14 @@ from accounts.models import CustomUser
 
 # Create your models here.
 
+class Category(models.Model):
+    parent = models.ForeignKey('self', related_name='children', on_delete=models.CASCADE, null=True, blank=True)
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
 class Product(models.Model):
     WARRANTY_CHOICES = (
         ('0', 'بدون گارانتی'),
@@ -13,6 +21,7 @@ class Product(models.Model):
     )
 
     title = models.CharField(max_length=200)
+    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     short_description = models.CharField(max_length=300, null=True, blank=True)
     description = RichTextField()
     product_image = models.ImageField(upload_to='product/')
@@ -27,6 +36,9 @@ class Product(models.Model):
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ('-datetime_created',)
+
     def __str__(self):
         return self.title
 
@@ -40,5 +52,8 @@ class ProductComment(models.Model):
     comment_body = RichTextField()
     is_active = models.BooleanField(default=True)
     datetime_created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ('-datetime_created',)
 
     

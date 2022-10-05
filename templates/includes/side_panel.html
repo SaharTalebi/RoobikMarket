@@ -1,0 +1,192 @@
+<!-- Side Panel -->
+<div class="accordion filters-container">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                گروه های محصولات
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                {% comment %} <ul style="list-style-type:none;">
+                    <li>
+                        <a href="{% url 'products' %}" class="{% if active_category %}text-secondary{% else %}text-warning{% endif %}">همه کالاها</a>
+                    </li>
+                {% for category in categories %}
+                    <li>
+                        <a href="{% url 'products' %}?category={{category.name}}"
+                           class="{% if category.name == active_category %}text-warning {% else %}text-secondary{% endif %}">
+                            {{category.name}}
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul> {% endcomment %}
+                <ul style="list-style-type:none;">
+                    <div class="form-group">
+                        <input type="checkbox" id="category3">
+                        <label for="category3">همه کالاها</label>
+                    </div>
+                    <form action="." method="POST">
+                        {% csrf_token %}
+                        {% for category in categories %}
+                            <div class="form-group">
+                                <input type="checkbox" name="mycheckbox" value="{{category.name}}">
+                                <label for="category3">{{category.name}}</label>
+                            </div>
+                        {% endfor %}
+                        <div class="col-12 text-center py-2">
+                            <button type="submit" class="btn btn-warning">اعمال فیلتر</button>
+                        </div>
+                    </form>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="accordion filters-container mt-3">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                محدوده قیمت
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div class="row">
+                    <div class="col-12 py-1 px-4 mt-3">
+                        <div id="steps-slider" dir="rtl"></div>
+                    </div>
+                    <div class="col-6 text-center price-range mt-3">
+                        <div>از</div>
+                        <div id="price-range-from">10000</div>
+                        <div>تومان</div>
+                    </div>
+                    <div class="col-6 text-center price-range mt-3">
+                        <div>از</div>
+                        <div id="price-range-to">500000</div>
+                        <div>تومان</div>
+                    </div>
+                    <div class="col-12 text-center py-2">
+                        <div class="btn btn-warning">اعمال محدوده تخفیف</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="accordion filters-container mt-3">
+    <div class="accordion-item">
+        <div id="collapseThree" class="accordion-collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body pb-2">
+                <div class="form-group">
+                    <input type="checkbox" id="only-available">
+                    <label for="only-available">فقط کالاهای موجود</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="accordion filters-container mt-3">
+    <div class="accordion-item">
+        <div id="collapseFour" class="accordion-collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body pb-2">
+                <div class="form-group">
+                    <input type="checkbox" id="only-warranty">
+                    <label for="only-warranty">فقط کالاهای دارای گارانتی</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="accordion filters-container mt-3">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFive">
+            <button class="accordion-button py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                جدیدترین محصولات
+            </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div class="row">
+                    <!-- Side Product -->
+                    <div class="col-12 col-md-4 col-lg-12 px-0 mt-2">
+                        <a href="./product.html">
+                            <div class="side-product">
+                                <div class="row pl-3">
+                                    <div class="col-3 pl-2">
+                                        <div class="image" style="background-image: url('assets/images/products/p100.png')"></div>
+                                    </div>
+                                    <div class="col-9 pr-0">
+                                        <h2>گوشی موبایل سامسونگ مدل Galaxy A51</h2>
+                                        <div class="row">
+                                            <div class="col-7 pl-0">
+                                                <span class="price">320.000 تومان</span>
+                                            </div>
+                                            <div class="col-5 pr-0 text-end">
+                                                <span class="views">321 بازدید</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Side Product -->
+                    <!-- Side Product -->
+                    <div class="col-12 col-md-4 col-lg-12 px-0 mt-2">
+                        <a href="./product.html">
+                            <div class="side-product">
+                                <div class="row pl-3">
+                                    <div class="col-3 pl-2">
+                                        <div class="image" style="background-image: url('assets/images/products/p100.png')"></div>
+                                    </div>
+                                    <div class="col-9 pr-0">
+                                        <h2>گوشی موبایل سامسونگ مدل Galaxy A51</h2>
+                                        <div class="row">
+                                            <div class="col-7 pl-0">
+                                                <span class="price">320.000 تومان</span>
+                                            </div>
+                                            <div class="col-5 pr-0 text-end">
+                                                <span class="views">321 بازدید</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Side Product -->
+                    <!-- Side Product -->
+                    <div class="col-12 col-md-4 col-lg-12 px-0 mt-2">
+                        <a href="./product.html">
+                            <div class="side-product">
+                                <div class="row pl-3">
+                                    <div class="col-3 pl-2">
+                                        <div class="image" style="background-image: url('assets/images/products/p100.png')"></div>
+                                    </div>
+                                    <div class="col-9 pr-0">
+                                        <h2>گوشی موبایل سامسونگ مدل Galaxy A51</h2>
+                                        <div class="row">
+                                            <div class="col-7 pl-0">
+                                                <span class="price">320.000 تومان</span>
+                                            </div>
+                                            <div class="col-5 pr-0 text-end">
+                                                <span class="views">321 بازدید</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Side Product -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Side Panel -->
