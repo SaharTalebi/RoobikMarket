@@ -241,26 +241,26 @@
                     </div>
                 </div>
             </div>
-            {% for on_sale in on_sale_products %}
+            {% for special_sale in special_sale_products %}
                 <div class="col-12 col-sm-6 col-lg-3">
                     <!-- Product Box -->
                     <div class="product-box">
-                        <a href="{% url 'product_detail' on_sale.id %}">
-                            <div class="image" style="background-image: url('{{on_sale.product_image.url}}')">
+                        <a href="{% url 'product_detail' special_sale.id %}">
+                            <div class="image" style="background-image: url('{{special_sale.product_image.url}}')">
                                 <span class="badge on-sale-badge">فروش ویژه</span>
                             </div>
                         </a>
                         <div class="details p-3">
                             <div class="category">
-                                <a href="{% url 'product_detail' on_sale.id %}">گوشی موبایل</a>
+                                <a href="{% url 'product_detail' special_sale.id %}">گوشی موبایل</a>
                                 &nbsp;/&nbsp;
-                                <a href="{% url 'product_detail' on_sale.id %}">سامسونگ</a>
+                                <a href="{% url 'product_detail' special_sale.id %}">سامسونگ</a>
                             </div>
-                            <a href="{% url 'product_detail' on_sale.id %}"><h2>{{on_sale.title}}</h2></a>
+                            <a href="{% url 'product_detail' special_sale.id %}"><h2>{{special_sale.title}}</h2></a>
                             <div>
-                                <span class="discounted">{{on_sale.discount_price | intcomma}} تومان</span>
+                                <span class="discounted">{{special_sale.discount_price | intcomma}} تومان</span>
                                 <br class="d-sm-none">
-                                <span class="price">{{on_sale.price | intcomma}} تومان</span>
+                                <span class="price">{{special_sale.price | intcomma}} تومان</span>
                             </div>
                             <div class="rate">
                                 <i class="fa fa-star-half-alt"></i>

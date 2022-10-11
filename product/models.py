@@ -5,9 +5,32 @@ from accounts.models import CustomUser
 
 # Create your models here.
 
+class ActiveProductManager(models.Manager):
+    def get_queryset(self):
+        return super(ActiveProductManager, self).get_queryset().filter(is_active=True)
+
+
 class Category(models.Model):
     parent = models.ForeignKey('self', related_name='children', on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=100)
+
+    class Meta:
+        verbose_name_plural = "categories" 
+
+    def __str__(self):                           
+        full_path = [self.name]                  
+        k = self.parent
+        while k is not None:
+            full_path.append(k.name)
+            k = k.parent
+        return ' -> '.join(full_path[::-1])
+
+
+class FeaturedProductCategory(models.Model):
+    name = models.CharField(max_length=150)
+
+    class Meta:
+        verbose_name_plural = "featured products categories" 
 
     def __str__(self):
         return self.name
@@ -22,6 +45,7 @@ class Product(models.Model):
 
     title = models.CharField(max_length=200)
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
+    featured_category = models.ManyToManyField(FeaturedProductCategory, related_name='products', blank=True)
     short_description = models.CharField(max_length=300, null=True, blank=True)
     description = RichTextField()
     product_image = models.ImageField(upload_to='product/')
@@ -33,8 +57,13 @@ class Product(models.Model):
     color = models.CharField(max_length=50, null=True, blank=True)
     warranty = models.CharField(max_length=50, choices=WARRANTY_CHOICES)
     is_active = models.BooleanField(default=True)
+    is_special_sale = models.BooleanField(default=False)
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
+
+    # Manager
+    objects = models.Manager()
+    active_product = ActiveProductManager()
 
     class Meta:
         ordering = ('-datetime_created',)

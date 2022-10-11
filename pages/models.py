@@ -10,5 +10,8 @@ class ContactUs(models.Model):
     text = models.TextField()
     datetime_created = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name_plural = "contact us" 
+
     def __str__(self):
         return self.name

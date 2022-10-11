@@ -1,13 +1,13 @@
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 
-from .models import Product, ProductComment, Category
 from .forms import ProductCommentForm
+from .models import Product, ProductComment, Category
 # Create your views here.
 
 def products_view(request):
     page_type = request.GET.get('type', 'tile')
-    products = Product.objects.filter(is_active=True)
+    products = Product.active_product.all()
     categories = Category.objects.filter(parent=None)
 
     query = request.GET.get('query', '')
@@ -16,18 +16,33 @@ def products_view(request):
 
     if request.method == "POST":
         my_checkbox_list = request.POST.getlist('mycheckbox')
+
         if 'کالای دیجیتال' in my_checkbox_list:
-            products = Product.objects.filter(category__name='کالای دیجیتال', is_active=True)
+            digit_list = Category.objects.filter(Q(parent__name='کالای دیجیتال') | Q(parent__name__in=['صوت','تصویر','کامپیوتر','گوشی موبایل'])).values_list('name')
+            products = Product.active_product.filter(Q(category__name='کالای دیجیتال') | Q(category__name__in = digit_list))
+
         elif 'مد و پوشاک' in my_checkbox_list:
-            products = Product.objects.filter(category__name='مد و پوشاک', is_active=True)
+            cloth_list = Category.objects.filter(parent__name='مد و پوشاک').values_list('name')
+            products = Product.active_product.filter(Q(category__name='مد و پوشاک') | Q(category__name__in = cloth_list))
+
         elif 'فرهنگ و هنر' in my_checkbox_list:
-            products = Product.objects.filter(category__name='فرهنگ و هنر', is_active=True)
+            art_list = Category.objects.filter(parent__name='فرهنگ و هنر').values_list('name')
+            products = Product.active_product.filter(Q(category__name='فرهنگ و هنر') | Q(category__name__in = art_list))
+
         elif 'سلامت و زیبایی' in my_checkbox_list:
-            products = Product.objects.filter(category__name='سلامت و زیبایی', is_active=True)
+            health_list = Category.objects.filter(parent__name='سلامت و زیبایی').values_list('name')
+            products = Product.active_product.filter(Q(category__name='سلامت و زیبایی') | Q(category__name__in = health_list))
+
         elif 'لوازم منزل' in my_checkbox_list:
-            products = Product.objects.filter(category__name='لوازم منزل', is_active=True)
+            decor_list = Category.objects.filter(parent__name='لوازم منزل').values_list('name')
+            products = Product.active_product.filter(Q(category__name='لوازم منزل') | Q(category__name__in = decor_list))
+
+        elif 'جواهرات' in my_checkbox_list:
+            jwel_list = Category.objects.filter(parent__name='جواهرات').values_list('name')
+            products = Product.active_product.filter(Q(category__name='جواهرات') | Q(category__name__in = jwel_list))
+
         else:
-            products = Product.objects.filter(is_active=True)
+            products = Product.active_product.all()
         
     context = {
         'products': products,

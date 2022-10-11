@@ -9,15 +9,17 @@ from blog.models import BlogPost
 # Create your views here.
 
 def home_page_view(request):
-    featured_products = Product.objects.all()[0:4]
-    on_sale_products = Product.objects.all()[0:4]
-    most_visited_products = Product.objects.all()[0:4]
-    blog_posts = BlogPost.objects.all()[0:3]
+    featured_products = Product.objects.filter(featured_category__name='محصولات منتخب')[0:4]
+    on_sale_products = Product.objects.filter(featured_category__name='تخفیف خورده')[0:4]
+    most_visited_products = Product.objects.filter(featured_category__name='پربازدیدترین')[0:4]
+    special_sale_products = Product.objects.filter(featured_category__name='تخفیف خورده')[0:2]
+    blog_posts = BlogPost.objects.filter(is_active=True)[0:3]
 
     context ={
         'featured_products': featured_products,
         'on_sale_products': on_sale_products,
         'most_visited_products': most_visited_products,
+        'special_sale_products': special_sale_products,
         'blog_posts': blog_posts,
     }
     return render(request, 'pages/home.html', context)
