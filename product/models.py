@@ -23,7 +23,7 @@ class Category(models.Model):
         while k is not None:
             full_path.append(k.name)
             k = k.parent
-        return ' -> '.join(full_path[::-1])
+        return ' / '.join(full_path[::-1])
 
 
 class FeaturedProductCategory(models.Model):
