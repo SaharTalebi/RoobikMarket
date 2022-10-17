@@ -3,52 +3,69 @@ from django.shortcuts import render, get_object_or_404
 
 from .forms import ProductCommentForm
 from .models import Product, ProductComment, Category
+# from cart.forms import AddToCartForm
 # Create your views here.
 
 def products_view(request):
     page_type = request.GET.get('type', 'tile')
+    page_value = request.GET.get('value', 'newest')
     products = Product.active_product.all()
     categories = Category.objects.filter(parent=None)
 
     query = request.GET.get('query', '')
     if query:
         products = Product.objects.filter(Q(title__icontains=query) | Q(description__icontains=query))
-
+    
     if request.method == "POST":
         my_checkbox_list = request.POST.getlist('mycheckbox')
 
         if 'کالای دیجیتال' in my_checkbox_list:
-            digit_list = Category.objects.filter(Q(parent__name='کالای دیجیتال') | Q(parent__name__in=['صوت','تصویر','کامپیوتر','گوشی موبایل'])).values_list('name')
-            products = Product.active_product.filter(Q(category__name='کالای دیجیتال') | Q(category__name__in = digit_list))
+            digit_list = Category.objects.filter(Q(name='کالای دیجیتال') | Q(parent__name='کالای دیجیتال') | Q(parent__name__in=['صوت','تصویر','کامپیوتر','گوشی موبایل'])).values_list('name')
+            products = Product.active_product.filter(category__name__in = digit_list)
 
         elif 'مد و پوشاک' in my_checkbox_list:
-            cloth_list = Category.objects.filter(parent__name='مد و پوشاک').values_list('name')
-            products = Product.active_product.filter(Q(category__name='مد و پوشاک') | Q(category__name__in = cloth_list))
+            cloth_list = Category.objects.filter(Q(name='مد و پوشاک') | Q(parent__name='مد و پوشاک')).values_list('name')
+            products = Product.active_product.filter(category__name__in = cloth_list)
 
         elif 'فرهنگ و هنر' in my_checkbox_list:
-            art_list = Category.objects.filter(parent__name='فرهنگ و هنر').values_list('name')
-            products = Product.active_product.filter(Q(category__name='فرهنگ و هنر') | Q(category__name__in = art_list))
+            art_list = Category.objects.filter(Q(name='فرهنگ و هنر') | Q(parent__name='فرهنگ و هنر')).values_list('name')
+            products = Product.active_product.filter(category__name__in = art_list)
 
         elif 'سلامت و زیبایی' in my_checkbox_list:
-            health_list = Category.objects.filter(parent__name='سلامت و زیبایی').values_list('name')
-            products = Product.active_product.filter(Q(category__name='سلامت و زیبایی') | Q(category__name__in = health_list))
+            health_list = Category.objects.filter(Q(name='سلامت و زیبایی') | Q(parent__name='سلامت و زیبایی')).values_list('name')
+            products = Product.active_product.filter(category__name__in = health_list)
 
         elif 'لوازم منزل' in my_checkbox_list:
-            decor_list = Category.objects.filter(parent__name='لوازم منزل').values_list('name')
-            products = Product.active_product.filter(Q(category__name='لوازم منزل') | Q(category__name__in = decor_list))
+            decor_list = Category.objects.filter(Q(name='لوازم منزل') | Q(parent__name='لوازم منزل')).values_list('name')
+            products = Product.active_product.filter(category__name__in = decor_list)
 
         elif 'جواهرات' in my_checkbox_list:
-            jwel_list = Category.objects.filter(parent__name='جواهرات').values_list('name')
-            products = Product.active_product.filter(Q(category__name='جواهرات') | Q(category__name__in = jwel_list))
+            jwel_list = Category.objects.filter(Q(name='جواهرات') | Q(parent__name='جواهرات')).values_list('name')
+            products = Product.active_product.filter(category__name__in = jwel_list)
 
         else:
             products = Product.active_product.all()
-        
-    context = {
-        'products': products,
-        'categories': categories,
-    }
 
+    if page_value == 'newest':    
+        context = {
+            'products': products,
+            'categories': categories,
+        }
+
+    if page_value == 'most_visited':
+        most_visited_products = Product.objects.filter(featured_category__name='پربازدیدترین')
+        context = {
+            'products': most_visited_products,
+            'categories': categories,
+        }
+
+    if page_value == 'most_sale':
+        most_sale_products = Product.objects.filter(featured_category__name='پرفروش ترین')
+        context = {
+            'products': most_sale_products,
+            'categories': categories,
+        }
+        
     if page_type == 'tile':
         return render(request, 'product/products.html', context)
     else:

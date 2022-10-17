@@ -43,10 +43,15 @@
                                     <div class="row">
                                         <div class="col-12 col-sm-10 my-1">
                                             <span class="d-block d-sm-inline-block">مرتب سازی بر اساس:</span>
-                                            <span class="order-filter d-block d-sm-inline-block active">جدیدترین</span>
-                                            <span class="order-filter d-block d-sm-inline-block">پربازدیدترین</span>
-                                            <span class="order-filter d-block d-sm-inline-block">پرفروش‌ترین</span>
-                                            <span class="order-filter d-block d-sm-inline-block">ارزان‌ترین</span>
+                                            <span class="order-filter">
+                                                <a class="text-secondary" href="{% url 'products' %}?type=list&value=newest">جدیدترین</a>
+                                            </span>
+                                            <span class="order-filter">
+                                                <a class="text-secondary" href="{% url 'products' %}?type=list&value=most_visited">پربازدیدترین</a>
+                                            </span>
+                                            <span >
+                                                <a class="order-filter text-secondary" href="{% url 'products' %}?type=list&value=most_sale">پرفروش‌ترین</a>
+                                            </span>
                                         </div>
                                         <div class="col-12 col-sm-2 pt-1 text-end">
                                             <span>
@@ -54,7 +59,7 @@
                                                 <a href="{% url 'products' %}?type=tile" class="products-view-type"><i class="fa fa-th"></i></a>
                                             </span>
                                             &nbsp;|&nbsp;
-                                            <span>122 کالا</span>
+                                            <span>{{products | length}} کالا</span>
                                         </div>
                                     </div>
                                 </div>

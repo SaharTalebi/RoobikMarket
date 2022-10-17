@@ -78,8 +78,8 @@
                                 <a href="{% url 'account_signup' %}">عضویت</a>
                             </div>
                             <div class="col-12 col-md-5 col-lg-6">
-                                <a href="./cart.html">
-                                    <div class="btn btn-warning w-100"><i class="fa fa-shopping-cart"></i>&nbsp;<span class="d-md-none d-lg-inline-block">سبد خرید</span> (2)</div>
+                                <a href="{% url 'cart:cart' %}">
+                                    <div class="btn btn-warning w-100"><i class="fa fa-shopping-cart"></i>&nbsp;<span class="d-md-none d-lg-inline-block">سبد خرید</span> ({{cart | length}})</div>
                                 </a>
                             </div>
                         </div>
@@ -344,7 +344,7 @@
                                                     <a href="#" aria-expanded="false">سایر صفحات<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
                                                     <ul style="">
                                                         <li><a href="./compare.html">مقایسه محصول</a></li>
-                                                        <li><a href="./cart.html">سبد خرید</a></li>
+                                                        <li><a href="{% url 'cart:cart' %}">سبد خرید</a></li>
                                                         <li><a href="./checkout.html">پیش فاکتور</a></li>
                                                         <li class="dm-bottom-separator"></li>
                                                         <li><a href="{% url 'account_login' %}">ورود به سایت</a></li>

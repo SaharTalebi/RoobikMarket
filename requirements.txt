@@ -8,8 +8,10 @@ Django==4.1.1
 django-allauth==0.51.0
 django-ckeditor==6.5.1
 django-crispy-forms==1.14.0
+django-jalali-date==1.0.1
 django-js-asset==2.0.0
 idna==3.3
+jdatetime==4.1.0
 oauthlib==3.2.0
 Pillow==9.2.0
 pycparser==2.21
