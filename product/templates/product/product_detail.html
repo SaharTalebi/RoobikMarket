@@ -3,6 +3,7 @@
 {% load static %}
 {% load humanize %}
 {% load crispy_forms_tags %}
+{% load jalali_tags %}
 
 {% block title %}جزئیات محصول{% endblock title %}
 
@@ -287,7 +288,7 @@
                                                                                             </div>
                                                                                             <div class="col-9 col-sm-10 col-md-11 pr-0 pr-md-2 pr-xl-0 pt-0 pt-lg-1">
                                                                                                 <div class="name">{{comment.author}}</div>
-                                                                                                <div class="date">ارسال شده در {{comment.datetime_created}}</div>
+                                                                                                <div class="date">ارسال شده در {{comment.datetime_created | to_jalali:'%Y/%m/%d'}}</div>
                                                                                             </div>
                                                                                             <div class="col-12">
                                                                                                 <p>{{comment.comment_body | safe}}</p>

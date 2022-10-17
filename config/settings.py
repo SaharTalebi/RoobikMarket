@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'crispy_forms',
     'ckeditor',
+    'jalali_date',
 
     # Local Apps
     'accounts',
