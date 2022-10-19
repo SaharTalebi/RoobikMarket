@@ -1,3 +1,4 @@
+from unittest import result
 from product.models import Product
 
 class Cart:
@@ -43,7 +44,10 @@ class Cart:
             cart[str(product.id)]['product_obj'] = product
 
         for item in cart.values():
-            item['total_price'] = item['product_obj'].price * item['quantity']
+            if item['product_obj'].discount_price:
+                item['total_price'] = item['product_obj'].discount_price * item['quantity']
+            else:
+                item['total_price'] = item['product_obj'].price * item['quantity']
             yield item
 
     def __len__(self):
@@ -51,7 +55,17 @@ class Cart:
 
     def clear(self):
         del self.session['cart']
-        self.save()
+        self.save()  
+
+    def total_discount(self):
+        result = 0
+        for item in self.cart.values():
+            if item['product_obj'].discount_price:
+                result += item['quantity'] * item['product_obj'].product_discount()
+        return result
 
     def get_total_price(self):
         return sum((item['quantity'] * item['product_obj'].price )for item in self.cart.values())
+
+    def get_total_price_with_discount(self):
+        return self.get_total_price() - self.total_discount()

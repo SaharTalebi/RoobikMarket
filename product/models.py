@@ -65,6 +65,9 @@ class Product(models.Model):
     objects = models.Manager()
     active_product = ActiveProductManager()
 
+    def product_discount(self):
+        return (self.price) - (self.discount_price)
+
     class Meta:
         ordering = ('-datetime_created',)
 

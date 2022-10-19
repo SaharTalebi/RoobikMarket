@@ -131,10 +131,10 @@
                                     <a href="{% url 'product_detail' on_sale.id %}"><h2>{{on_sale.title}}</h2></a>
                                     <div>
                                         {% if on_sale.discount_price %}
-                                            <span class="discounted">{{on_sale.discount_price | intcomma}} تومان</span>
+                                            <span class="discounted">{{on_sale.price | intcomma}} تومان</span>
                                         {% endif %}
                                         <br class="d-sm-none">
-                                        <span class="price">{{on_sale.price | intcomma}} تومان</span>
+                                        <span class="price">{{on_sale.discount_price | intcomma}} تومان</span>
                                     </div>
                                     <div class="rate">
                                         <i class="fa fa-star-half-alt"></i>
