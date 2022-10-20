@@ -73,10 +73,17 @@
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="row">
-                            <div class="col-12 col-md-7 col-lg-6 text-center" id="btn-login-register">
-                                <a href="{% url 'account_login' %}">ورود</a> /
-                                <a href="{% url 'account_signup' %}">عضویت</a>
-                            </div>
+                            {% if user.is_authenticated %}
+                                <div class="col-12 col-md-7 col-lg-6 text-center" id="btn-login-register">
+                                    <a href="{% url 'account_logout' %}">خروج</a> /
+                                    <a href="{% url 'personal_info' %}">{{user.username}}</a>
+                                </div>
+                            {% else %}
+                                <div class="col-12 col-md-7 col-lg-6 text-center" id="btn-login-register">
+                                    <a href="{% url 'account_login' %}">ورود</a> /
+                                    <a href="{% url 'account_signup' %}">عضویت</a>
+                                </div>
+                            {% endif %}
                             <div class="col-12 col-md-5 col-lg-6">
                                 <a href="{% url 'cart:cart' %}">
                                     <div class="btn btn-warning w-100"><i class="fa fa-shopping-cart"></i>&nbsp;<span class="d-md-none d-lg-inline-block">سبد خرید</span> ({{cart | length}})</div>
@@ -355,9 +362,9 @@
                                                     </ul>
                                                 </li>
                                                 <li class="droopmenu-parent" aria-haspopup="true">
-                                                    <a href="profile/personal-info.html" aria-expanded="false">پروفایل کاربری<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
+                                                    <a href="{% url 'personal_info' %}" aria-expanded="false">پروفایل کاربری<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
                                                     <ul style="">
-                                                        <li><a href="profile/personal-info.html">مشخصات کاربری</a></li>
+                                                        <li><a href="{% url 'personal_info' %}">مشخصات کاربری</a></li>
                                                         <li><a href="profile/factors.html">سفارشات</a></li>
                                                         <li><a href="profile/addresses.html">آدرس ها</a></li>
                                                         <li><a href="profile/favorites.html">علاقه مندی ها</a></li>

@@ -1,0 +1,16 @@
+{% extends '_base.html' %}
+
+{% block title %}خروج از حساب کاربری{% endblock title %}
+
+{% block content %}
+<div class="container" id='logout'>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <p>  {{user.username}} عزیز آیا می خواهید از حساب کاربری خود خارج شوید؟ </p>
+        <div id='logoutbtn'>
+            <a href=""><button class="btn btn-outline-danger" type="submit">بله</button></a>
+            <a href="{% url 'personal_info' %}"><button class="btn btn-outline-success" type="button">خیر</button></a>
+        </div>
+    </form>
+</div>
+{% endblock content %}
