@@ -1,0 +1,49 @@
+{% extends '_base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}ویرایش اطلاعات حساب کاربری{% endblock title %}
+
+{% block content %}
+<br>
+<br>
+<div class="container">
+    <div class="container mb-5">
+        <p>{{user.username}} عزیز، لطفا بعد از ویرایش اطلاعات خود، جهت ثبت اطلاعات روی دکمه "ویرایش اطلاعات" کلیک کنید.</p>
+    </div>
+        
+    {% for info in personal_info %}
+        <form action="{% url 'edit_info' %}" method="post">
+            {% csrf_token %}
+            <div class="container row mb-5">
+                <div class="col-md-4">
+                    <label for="">نام: </label>
+                    <div>
+                        <input type="text" id="edit-info" value="{{info.first_name}}" name="first_name">
+                    </div>
+                    <label for="">نام خانوادگی: </label>
+                    <div>
+                        <input type="text" id="edit-info" value="{{info.last_name}}" name="last_name">
+                    </div>
+                    <label for="id">کد ملی:</label>
+                    <div>
+                        <input type="text" id="edit-info" value="{{info.p_id}}" name="p_id">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="id">شماره کارت: </label>
+                    <div>
+                        <input type="text" id="edit-info" value="{{info.cart_number}}" name="cart_number">
+                    </div>
+                    <label for="id">شماره تماس: </label>
+                    <div>
+                        <input type="text" id="edit-info" value="{{info.phone_number}}" name="phone_number">
+                    </div>
+                    <br>
+                    <button class="btn btn-success" type="submit">ویرایش اطلاعات</button>
+                </div>
+            </div>
+        </form>
+    {% endfor %}
+</div>
+{% endblock content %}
