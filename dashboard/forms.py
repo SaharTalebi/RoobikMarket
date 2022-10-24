@@ -1,8 +1,9 @@
 from django import forms
 
-from .models import PersonalInfo
+from accounts.models import CustomUser
+
 
 class PersonalInfoForm(forms.ModelForm):
     class Meta:
-        model = PersonalInfo
-        fields = ('person', 'first_name', 'last_name', 'phone_number', 'p_id', 'cart_number',)
+        model = CustomUser
+        fields = "__all__"

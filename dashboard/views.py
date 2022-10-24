@@ -1,14 +1,14 @@
 from django.shortcuts import render, redirect
 
 from .forms import PersonalInfoForm
-from .models import PersonalInfo
+# from .models import PersonalInfo
 from accounts.models import CustomUser
 
 
 def personal_info_view(request):
     user = request.user
-    personal_info = PersonalInfo.objects.filter(person__username=user)
-    form = PersonalInfoForm(initial={'person': user,})
+    personal_info = CustomUser.objects.filter(username=user)
+    form = PersonalInfoForm(initial={'username': user,})
     page_type = request.GET.get('type', '')
     context = {
         'form': form,
@@ -24,8 +24,9 @@ def personal_info_view(request):
 
 def edit_personal_info_view(request):
     user = request.user
-    form = PersonalInfoForm(request.POST)
+    form = PersonalInfoForm(request.POST or None, initial={'username': user})
     if request.method == 'POST':
+        print('hello')
         if form.is_valid:
             first_name = request.POST['first_name']
             last_name = request.POST['last_name']
@@ -33,10 +34,11 @@ def edit_personal_info_view(request):
             phone_number = request.POST['phone_number']
             p_id = request.POST['p_id']
             email = request.POST['email']
-            PersonalInfo.objects.filter(person=user).update(
-                                        first_name=first_name, last_name=last_name, p_id=p_id,
-                                        cart_number=cart_number, phone_number=phone_number)
-            CustomUser.objects.filter(username=user).update(email=email)
-    
+            CustomUser.objects.filter(username=user).update(
+                                    email=email, first_name=first_name, last_name=last_name, p_id=p_id,
+                                    cart_no=cart_number, phone_no=phone_number)
+
     return redirect('personal_info')
+    
+    
 

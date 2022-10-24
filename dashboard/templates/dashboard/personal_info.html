@@ -37,7 +37,6 @@
                     <div class="content">
                         <div class="row">
                             <div class="col-12 col-lg-3">
-                                {% for info in personal_info %}
                                 <!-- Side Panel -->
                                 <div class="accordion" id="side-panel">
                                     <div class="accordion-item menu-container">
@@ -58,7 +57,7 @@
                                             <div class="accordion-body">
                                                 <ul>
                                                     <li>
-                                                        <a href="personal-info.html" class="active">
+                                                        <a href="{% url 'personal_info' %}" class="active">
                                                             <div>
                                                                 <div class="icon d-inline-block"><img src="{% static 'images/icons/profile-menu/profile.webp' %}" class="pl-2"></div> اطلاعات حساب
                                                             </div>
@@ -98,8 +97,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- /Side Panel -->
                             </div>
+                            {% for info in personal_info %}
                             <div class="col-12 col-lg-9 pl-lg-0 pr-lg-2 mt-2 mt-lg-0">
                                 <!-- Profile Fields -->
                                 <div class="custom-container bg-light" id="profile-fields">
@@ -115,6 +114,8 @@
                                                         <div class="title">نام و نام خانوادگی</div>
                                                         {% if info.first_name or info.last_name %}
                                                             <div class="value">{{info.first_name}} {{info.last_name}}</div>
+                                                        {% else %}
+                                                            <div class="value"></div>
                                                         {% endif %}
                                                     </div>
                                                     <div class="col-2">
@@ -137,7 +138,7 @@
                                                 <div class="row">
                                                     <div class="col-10">
                                                         <div class="title">شماره تماس</div>
-                                                        <div class="value">{{info.phone_number}}</div>
+                                                        <div class="value">{{info.phone_no}}</div>
                                                     </div>
                                                     <div class="col-2">
                                                         <a href="{% url 'personal_info' %}?type=edit" class="float-left" data-toggle="modal" data-target="#mobileModal"><i class="fa fa-edit"></i></a>
@@ -148,7 +149,7 @@
                                                 <div class="row">
                                                     <div class="col-10">
                                                         <div class="title">پست الکترونیک</div>
-                                                        <div class="value">{{info.person.email}}</div>
+                                                        <div class="value">{{info.email}}</div>
                                                     </div>
                                                     <div class="col-2">
                                                         <a href="#" class="float-left" data-toggle="modal" data-target="#telModal"><i class="fa fa-edit"></i></a>
@@ -159,7 +160,7 @@
                                                 <div class="row">
                                                     <div class="col-10">
                                                         <div class="title">شماره کارت جهت مرجوع وجه</div>
-                                                        <div class="value">{{info.cart_number}}</div>
+                                                        <div class="value">{{info.cart_no}}</div>
                                                     </div>
                                                     <div class="col-2">
                                                         <a href="{% url 'personal_info' %}?type=edit" class="float-left" data-toggle="modal" data-target="#cardNumberModal"><i class="fa fa-edit"></i></a>

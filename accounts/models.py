@@ -1,6 +1,14 @@
+from email.policy import default
+from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
 class CustomUser(AbstractUser):
-    pass
+    # username = models.CharField(max_length = 50, blank = True, null = True, unique = True)
+    # email = models.EmailField(verbose_name='email address', unique = True)
+    first_name = models.CharField(max_length=100, blank=True)
+    last_name = models.CharField(max_length=100, blank=True)
+    phone_no = models.CharField(verbose_name='phone number', max_length=50, blank=True)
+    cart_no = models.CharField(verbose_name='cart number', max_length=50, blank=True)
+    p_id = models.CharField(verbose_name='personal id', max_length=50, blank=True)
