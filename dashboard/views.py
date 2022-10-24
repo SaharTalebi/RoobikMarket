@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 
 from .forms import PersonalInfoForm
 from .models import PersonalInfo
+from accounts.models import CustomUser
 
 
 def personal_info_view(request):
@@ -22,6 +23,7 @@ def personal_info_view(request):
 
 
 def edit_personal_info_view(request):
+    user = request.user
     form = PersonalInfoForm(request.POST)
     if request.method == 'POST':
         if form.is_valid:
@@ -30,9 +32,11 @@ def edit_personal_info_view(request):
             cart_number = request.POST['cart_number']
             phone_number = request.POST['phone_number']
             p_id = request.POST['p_id']
-            PersonalInfo.objects.filter(person=request.user).update(
+            email = request.POST['email']
+            PersonalInfo.objects.filter(person=user).update(
                                         first_name=first_name, last_name=last_name, p_id=p_id,
                                         cart_number=cart_number, phone_number=phone_number)
+            CustomUser.objects.filter(username=user).update(email=email)
     
     return redirect('personal_info')
 

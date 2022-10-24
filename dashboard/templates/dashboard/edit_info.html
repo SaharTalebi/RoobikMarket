@@ -5,13 +5,10 @@
 {% block title %}ویرایش اطلاعات حساب کاربری{% endblock title %}
 
 {% block content %}
-<br>
-<br>
-<div class="container">
+<div class="container mt-5">
     <div class="container mb-5">
-        <p>{{user.username}} عزیز، لطفا بعد از ویرایش اطلاعات خود، جهت ثبت اطلاعات روی دکمه "ویرایش اطلاعات" کلیک کنید.</p>
+        <p>{{user.username}} عزیز، لطفا بعد از ویرایش اطلاعات خود، جهت ثبت مقادیر روی دکمه "ویرایش اطلاعات" کلیک کنید.</p>
     </div>
-        
     {% for info in personal_info %}
         <form action="{% url 'edit_info' %}" method="post">
             {% csrf_token %}
@@ -29,6 +26,8 @@
                     <div>
                         <input type="text" id="edit-info" value="{{info.p_id}}" name="p_id">
                     </div>
+                    <br>
+                    <button class="btn btn-success" type="submit" style="margin-right: 10px;">ویرایش اطلاعات</button>
                 </div>
                 <div class="col-md-4">
                     <label for="id">شماره کارت: </label>
@@ -39,8 +38,10 @@
                     <div>
                         <input type="text" id="edit-info" value="{{info.phone_number}}" name="phone_number">
                     </div>
-                    <br>
-                    <button class="btn btn-success" type="submit">ویرایش اطلاعات</button>
+                    <label for="id">پست الکترونیک: </label>
+                    <div>
+                        <input type="text" id="edit-info" value="{{info.person.email}}" name="email">
+                    </div>
                 </div>
             </div>
         </form>
