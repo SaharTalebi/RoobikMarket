@@ -1978,4 +1978,7 @@ input#edit-info{
   padding: 3px 10px 3px ;
   width: 60%;
 }
+div#fav-product{
+  min-height: 390px; 
+}
 /* /new */

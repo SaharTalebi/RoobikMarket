@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseRedirect
 
 from .forms import PersonalInfoForm
-# from .models import PersonalInfo
 from accounts.models import CustomUser
+from product.models import Product
 
 
 def personal_info_view(request):
@@ -15,7 +16,6 @@ def personal_info_view(request):
         'form_field': page_type,
         'personal_info': personal_info,
     }
-
     if page_type == 'edit':
         return render(request, 'dashboard/edit_info.html', context)
 
@@ -26,7 +26,6 @@ def edit_personal_info_view(request):
     user = request.user
     form = PersonalInfoForm(request.POST or None, initial={'username': user})
     if request.method == 'POST':
-        print('hello')
         if form.is_valid:
             first_name = request.POST['first_name']
             last_name = request.POST['last_name']
@@ -39,6 +38,29 @@ def edit_personal_info_view(request):
                                     cart_no=cart_number, phone_no=phone_number)
 
     return redirect('personal_info')
+
+def address_view(request):
+    return render(request, 'dashboard/addresses.html')
+
+def factors_view(request):
+    return render(request, 'dashboard/factors.html')
+
+def favorites_view(request):
+    fav_product = Product.objects.filter(user_wishlist=request.user)
+    context = {
+        'fav_product': fav_product,
+    }
+    return render(request, 'dashboard/favorits.html', context)
+
+def fav_product_view(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    if product.user_wishlist.filter(id=request.user.id).exists():
+        product.user_wishlist.remove(request.user)
+    else:
+        product.user_wishlist.add(request.user)
+    # return HttpResponseRedirect(request.META["HTTP_REFERE"])
+    return redirect(request.build_absolute_uri())
+                
     
     
 

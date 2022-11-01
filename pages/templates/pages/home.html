@@ -84,7 +84,12 @@
                             <div class="product-box">
                                 <a href="{% url 'product_detail' featured.id %}"><div class="image" style="background-image: url('{{featured.product_image.url}}')"></div></a>
                                 <div class="icons">
-                                    <div class="btn btn-outline-secondary btn-favorite"></div>
+                                    <a href="{% url 'fav_product' featured.id %}">
+                                        <div class="btn btn-outline-secondary btn-favorite  mt-1 mt-sm-0 active" data-toggle="tooltip" data-placement="top" 
+                                            title={% if featured in fav_product %}"حذف از علاقه‌مندی"{% else %}"افزودن به علاقه‌مندی"{% endif %}
+                                            style={% if featured in fav_product %}"background-color:#fcb941"{% else %}{% endif %} >
+                                        </div>
+                                    </a>
                                     <div class="btn btn-outline-secondary btn-compare"></div>
                                 </div>
                                 <div class="details p-3">
@@ -160,7 +165,12 @@
                             <div class="product-box">
                                 <a href="{% url 'product_detail' most_visited.id %}"><div class="image" style="background-image: url('{{most_visited.product_image.url}}')"></div></a>
                                 <div class="icons">
-                                    <div class="btn btn-outline-secondary btn-favorite"></div>
+                                    <a href="{% url 'fav_product' most_visited.id %}">
+                                        <div class="btn btn-outline-secondary btn-favorite mt-1 mt-sm-0" data-toggle="tooltip" data-placement="top" 
+                                            title={% if most_visited in fav_product %}"حذف از علاقه‌مندی"{% else %}"افزودن به علاقه‌مندی"{% endif %}
+                                            style={% if most_visited in fav_product %}"background-color:#fcb941"{% else %}{% endif %} >
+                                        </div>
+                                    </a>
                                     <div class="btn btn-outline-secondary btn-compare"></div>
                                 </div>
                                 <div class="details p-3">
@@ -335,7 +345,12 @@
                     <div class="product-box">
                         <a href="{{mobile.get_absolute_url}}"><div class="image" style="background-image: url('{{mobile.product_image.url}}')"></div></a>
                         <div class="icons">
-                            <div class="btn btn-outline-secondary btn-favorite"></div>
+                            <a href="{% url 'fav_product' mobile.id %}">
+                                <div class="btn btn-outline-secondary btn-favorite  mt-1 mt-sm-0 active" data-toggle="tooltip" data-placement="top" 
+                                    title={% if mobile in fav_product %}"حذف از علاقه‌مندی"{% else %}"افزودن به علاقه‌مندی"{% endif %}
+                                    style={% if mobile in fav_product %}"background-color:#fcb941"{% else %}{% endif %} >
+                                </div>
+                            </a>
                             <div class="btn btn-outline-secondary btn-compare"></div>
                         </div>
                         <div class="details p-3">
@@ -366,7 +381,12 @@
                     <div class="product-box">
                         <a href="{{laptop.get_absolute_url}}"><div class="image" style="background-image: url('{{laptop.product_image.url}}')"></div></a>
                         <div class="icons">
-                            <div class="btn btn-outline-secondary btn-favorite"></div>
+                            <a href="{% url 'fav_product' laptop.id %}">
+                                <div class="btn btn-outline-secondary btn-favorite  mt-1 mt-sm-0 active" data-toggle="tooltip" data-placement="top" 
+                                    title={% if laptop in fav_product %}"حذف از علاقه‌مندی"{% else %}"افزودن به علاقه‌مندی"{% endif %}
+                                    style={% if laptop in fav_product %}"background-color:#fcb941"{% else %}{% endif %} >
+                                </div>
+                            </a>
                             <div class="btn btn-outline-secondary btn-compare"></div>
                         </div>
                         <div class="details p-3">
@@ -397,7 +417,12 @@
                     <div class="product-box">
                         <a href="{{accessory.get_absolute_url}}"><div class="image" style="background-image: url('{{accessory.product_image.url}}')"></div></a>
                         <div class="icons">
-                            <div class="btn btn-outline-secondary btn-favorite"></div>
+                            <a href="{% url 'fav_product' accessory.id %}">
+                                <div class="btn btn-outline-secondary btn-favorite  mt-1 mt-sm-0 active" data-toggle="tooltip" data-placement="top" 
+                                    title={% if accessory in fav_product %}"حذف از علاقه‌مندی"{% else %}"افزودن به علاقه‌مندی"{% endif %}
+                                    style={% if accessory in fav_product %}"background-color:#fcb941"{% else %}{% endif %} >
+                                </div>
+                            </a>
                             <div class="btn btn-outline-secondary btn-compare"></div>
                         </div>
                         <div class="details p-3">
@@ -428,7 +453,12 @@
                     <div class="product-box">
                         <a href="{{camera.get_absolute_url}}"><div class="image" style="background-image: url('{{camera.product_image.url}}')"></div></a>
                         <div class="icons">
-                            <div class="btn btn-outline-secondary btn-favorite"></div>
+                            <a href="{% url 'fav_product' camera.id %}">
+                                <div class="btn btn-outline-secondary btn-favorite  mt-1 mt-sm-0 active" data-toggle="tooltip" data-placement="top" 
+                                    title={% if camera in fav_product %}"حذف از علاقه‌مندی"{% else %}"افزودن به علاقه‌مندی"{% endif %}
+                                    style={% if camera in fav_product %}"background-color:#fcb941"{% else %}{% endif %} >
+                                </div>
+                            </a>
                             <div class="btn btn-outline-secondary btn-compare"></div>
                         </div>
                         <div class="details p-3">

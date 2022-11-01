@@ -3,8 +3,7 @@ from django.shortcuts import render, get_object_or_404
 
 from .forms import ProductCommentForm
 from .models import Product, ProductComment, Category
-# from cart.forms import AddToCartForm
-# Create your views here.
+
 
 def products_view(request):
     page_type = request.GET.get('type', 'tile')
@@ -76,6 +75,7 @@ def product_detail_view(request, pk):
     product = get_object_or_404(Product, pk=pk)
     product_comment = ProductComment.objects.filter(product=product, is_active=True)
     comment_form = ProductCommentForm(request.POST or None)
+    fav_product = Product.objects.filter(user_wishlist=request.user)
 
     if request.method == 'POST':
         if comment_form.is_valid:
@@ -89,6 +89,7 @@ def product_detail_view(request, pk):
         'product': product,
         'comment_form': comment_form,
         'comments': product_comment,
+        'fav_product': fav_product,
     }
     return render(request, 'product/product_detail.html', context)
 

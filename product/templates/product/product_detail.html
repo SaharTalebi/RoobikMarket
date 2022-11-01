@@ -122,7 +122,7 @@
                         </div>
 
                         <div class="col-12 col-lg-7 mt-5 mt-lg-0 pl-lg-0" id="product-intro">
-                            <a href="./product.html">
+                            <a href="#">
                                 <h1>{{product.title}}</h1>
                             </a>
                             <div class="stars-container">
@@ -181,7 +181,12 @@
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-success px-4 px-lg-2 px-xl-4 btn-add-to-basket"><i class="fa fa-shopping-cart"></i> افزودن به سبد خرید</button>
                                             <br class="d-sm-none">
-                                            <div class="btn btn-outline-secondary btn-favorite mt-1 mt-sm-0" data-toggle="tooltip" data-placement="top" title="افزودن به علاقه‌مندی"></div>
+                                            <a href="{% url 'fav_product' product.id %}">
+                                                <div class="btn btn-outline-secondary btn-favorite mt-1 mt-sm-0" data-toggle="tooltip" data-placement="top" 
+                                                    title={% if product in fav_product %}"حذف از علاقه‌مندی"{% else %}"افزودن به علاقه‌مندی"{% endif %}
+                                                    style={% if product in fav_product %}"background-color:#fcb941"{% else %}{% endif %} >
+                                                </div>
+                                            </a>
                                             <a href="#"><div class="btn btn-outline-secondary btn-compare mt-1 mt-sm-0" data-toggle="tooltip" data-placement="top" title="مقایسه"></div></a>
                                         </div>
                                     </div>

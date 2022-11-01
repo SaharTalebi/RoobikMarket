@@ -36,6 +36,28 @@
                             <div class="col-12 col-lg-5 text-center">
                                 <img src="{% static 'images/login.png' %}" alt="">
                             </div>
+                            {% comment %} <div class="col-12 col-lg-7 pt-5 pt-md-0 align-self-center">
+                                <form action="{% url 'account_login' %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="title">وارد شوید</div>
+                                    <p>با عضویت در سایت از همه امکانات سایت بهره مند شوید.</p>
+                                    <div class="form-group">
+                                        <label for="login">نام کاربری:</label>
+                                        <input type="login" class="form-control" id="login" name="login">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">پست الکترونیک :</label>
+                                        <input type="email" class="form-control" id="email" name="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">رمز عبور :</label>
+                                        <input type="password" class="form-control" id="password" name="password">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success">ورود به ناحیه کاربری</button>
+                                    </div>
+                                </form>
+                            </div> {% endcomment %}
                             <div class="col-12 col-lg-7 pt-5 pt-md-0 align-self-center">
                                 <div class="title">وارد شوید</div>
                                 <p>با عضویت در سایت از همه امکانات سایت بهره مند شوید.</p>

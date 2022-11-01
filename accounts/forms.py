@@ -6,20 +6,6 @@ class MyCustomLoginForm(LoginForm):
     def __init__(self, *args, **kwargs):
         super(MyCustomLoginForm, self).__init__(*args, **kwargs)
 
-        self.fields['login'] = forms.CharField(
-            label='نام کاربری :',
-            # defualt= 'sahar',
-            widget=forms.TextInput(
-                attrs={
-                    'class': "form-control",
-                    # 'placeholder': 'نام کاربری',
-                    'dir': 'rtl',
-                    'autocomplete': 'off',
-                    
-                }
-            ),
-        )
-
         self.fields['email'] = forms.EmailField(
             label='پست الکترونیک :',
             widget=forms.EmailInput(

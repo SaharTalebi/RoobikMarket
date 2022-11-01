@@ -60,6 +60,7 @@ class Product(models.Model):
     is_special_sale = models.BooleanField(default=False)
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
+    user_wishlist = models.ManyToManyField(CustomUser, related_name='user_wishlist', blank=True)
 
     # Manager
     objects = models.Manager()

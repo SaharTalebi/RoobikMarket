@@ -6,3 +6,4 @@ some of my website features:
  3- Implementing product app with ability of insert products by they category and search a special product among them by user. 
  4- Implementing cart app for select and buy a product by user.
  5- Installing jalali-date package for showing date and time in Persian.
+ 6- Function_based views.

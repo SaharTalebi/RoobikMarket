@@ -67,7 +67,7 @@
                                                                 <img src="{{item.product_obj.product_image.url}}" alt="">
                                                             </div>
                                                             <div class="col-10 col-md-8">
-                                                                <a href="./product.html" target="_blank"><div class="title pt-2">{{item.product_obj.title}}</div></a>
+                                                                <a href="{% url 'product_detail' item.product_obj.id %}" target="_blank"><div class="title pt-2">{{item.product_obj.title}}</div></a>
                                                             </div>
                                                         </div>
                                                     </div>
