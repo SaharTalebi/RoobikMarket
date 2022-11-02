@@ -92,9 +92,3 @@ def product_detail_view(request, pk):
         'fav_product': fav_product,
     }
     return render(request, 'product/product_detail.html', context)
-
-
-
-# active_category = request.GET.get('category', '')
-# if active_category:
-# products = Product.objects.filter(category__name=active_category)

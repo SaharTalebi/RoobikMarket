@@ -42,11 +42,11 @@
                             <!-- New Address Form -->
                             <div class="custom-container mb-2" id="new-address">
                                 <div class="row pt-2 px-3">
-                                    <div class="col-12"><h1>افزودن آدرس جدید</h1></div>
+                                    <div class="col-12"><h1>ویرایش آدرس </h1></div>
                                 </div>
                                 <hr>
                                 <div class="container">
-                                    <form action="{% url 'addresses' %}" method="post">
+                                    <form action="{% url 'edit_address' address.id %}" method="post">
                                         {% csrf_token %}
                                         <div class="row">
                                             <div class="col-12 pt-3">
@@ -54,42 +54,42 @@
                                                     <div class="col-12 col-md-4 pl-2">
                                                         <div class="form-group m-1">
                                                             <label for="state">استان:</label>
-                                                            <input type="text" name="state" id="state" class="form-control">
+                                                            <input type="text" name="state" id="state" class="form-control" value="{{address.state}}">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-4 pl-2">
                                                         <div class="form-group m-1">
                                                             <label for="city">شهر :</label>
-                                                            <input type="text" name="city" id="city" class="form-control">
+                                                            <input type="text" name="city" id="city" class="form-control" value="{{address.city}}">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-8 pl-2">
                                                         <div class="form-group m-1">
                                                             <label for="full_address">نشانی کامل:</label>
-                                                            <input type="text" name="full_address" id="address" class="form-control">
+                                                            <input type="text" name="full_address" id="address" class="form-control" value="{{address.full_address}}">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-4 pl-2">
                                                         <div class="form-group m-1">
                                                             <label for="postal_code">کد پستی:</label>
-                                                            <input type="text" name="postal_code" id="postal_code" class="form-control">
+                                                            <input type="text" name="postal_code" id="postal_code" class="form-control" value="{{address.postal_code}}">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-4 pl-2">
                                                         <div class="form-group m-1">
                                                             <label for="delivery_person">تحویل گیرنده:</label>
-                                                            <input type="text" name="delivery_person" id="receiver" class="form-control">
+                                                            <input type="text" name="delivery_person" id="delivery_person" class="form-control" value="{{address.delivery_person}}">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-4 pl-2">
                                                         <div class="form-group m-1">
                                                             <label for="phone_no">تلفن تماس:</label>
-                                                            <input type="text" name="phone_no" id="tel" class="form-control">
+                                                            <input type="text" name="phone_no" id="tel" class="form-control" value="{{address.phone_no}}">
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-group m-1 pb-3">
-                                                            <button type="submit" class="btn btn-primary px-5">ذخیره آدرس</button>
+                                                            <button type="submit" class="btn btn-primary px-5">ویرایش آدرس</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -99,39 +99,6 @@
                                 </div>
                             </div>
                             <!-- /New Address Form -->
-
-                            <!-- User Addresses -->
-                            <div class="custom-container" id="addresses">
-                                <div class="row pt-2 px-3">
-                                    <div class="col-12"><h1>آدرس های من</h1></div>
-                                </div>
-                                <hr>
-                                <div class="container">
-                                    <div class="row">
-                                        <!-- Address Record -->
-                                        {% for address in addresses %}
-                                            <div class="col-12 address py-2">
-                                                <div class="row">
-                                                    <div class="col-12 col-sm-10">
-                                                        <div class="title">{{address.state}}, {{address.city}}</div>
-                                                        <div class="sub-title">{{address.full_address}}</div>
-                                                        <div class="sub-title">{{address.postal_code}}</div>
-                                                        <div class="sub-title">{{address.person.first_name}} {{address.person.last_name}}</div>
-                                                        <div class="sub-title">{{address.phone_no}}</div>
-                                                    </div>
-                                                    <div class="col-12 col-sm-2 text-lg-end">
-                                                        <a href="{% url 'del_address' address.id %}" onclick="return confirm('آیا جهت حذف این آدرس اطمینان دارید؟')" class="float-right float-sm-left pr-2 pl-sm-2"><i class="fa fa-trash-alt font-weight-normal"></i></a>
-                                                        <a href="{% url 'edit_address' address.id %}" class="float-right float-sm-left"><i class="fa fa-edit font-weight-normal"></i></a>
-                                                        <a href="#" class="float-right float-sm-left ml-2" title="آدرس پیش فرض"><i class="fa fa-check-circle" style="color: #fcb941"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {% endfor %}
-                                        <!-- Address Record -->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /User Addresses -->
                         </div>
                     </div>
                 </div>

@@ -2,13 +2,18 @@ from django.contrib import admin
 
 from .models import Product, ProductComment, Category, FeaturedProductCategory
 
-# Register your models here.
+
+class CommentsInline(admin.TabularInline):
+    model = ProductComment
+    fields = ['author', 'is_active']
+
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('title', 'category', 'is_special_sale', 'is_active',)
     list_display_links = ('title',)
     list_editable = ('is_active', 'is_special_sale', 'category')
     list_filter = ('category', 'featured_category', 'is_active', 'is_special_sale')
+    inlines = [CommentsInline,]
 
 @admin.register(ProductComment)
 class ProductCommentAdmin(admin.ModelAdmin):

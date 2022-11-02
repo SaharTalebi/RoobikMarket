@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseRedirect
 
-from .forms import PersonalInfoForm
+from .forms import PersonalInfoForm, AddressForm
+from .models import Address
 from accounts.models import CustomUser
 from product.models import Product
 
@@ -40,7 +40,55 @@ def edit_personal_info_view(request):
     return redirect('personal_info')
 
 def address_view(request):
-    return render(request, 'dashboard/addresses.html')
+    user = request.user
+    addresses = Address.objects.filter(person=user)
+    address_form = AddressForm(request.POST or None)
+
+    if request.method == "POST":
+        if address_form.is_valid:
+            state = request.POST['state']
+            city = request.POST['city']
+            full_address = request.POST['full_address']
+            postal_code = request.POST['postal_code']
+            phone_no = request.POST['phone_no']
+            delivery_person = request.POST['delivery_person']
+            new_address = Address.objects.create(person=user, state=state, city=city, full_address=full_address, postal_code=postal_code,
+                                                 phone_no=phone_no, delivery_person=delivery_person)
+            new_address.save()
+            return redirect('addresses')
+    context = {
+        'addresses': addresses,
+        'address_form': address_form,
+    }
+    return render(request, 'dashboard/addresses.html', context)
+
+def delete_address_view(request, id):
+    address = get_object_or_404(Address, id=id)
+    address.delete()
+    return redirect('addresses')
+
+def edit_address_view(request, id):
+    user = request.user
+    addresses = Address.objects.filter(person=user)
+    address = get_object_or_404(Address, id=id)
+    form = AddressForm(request.POST)
+    if request.method == "POST":
+        if form.is_valid():
+            state = request.POST['state']
+            city = request.POST['city']
+            full_address = request.POST['full_address']
+            phone_no = request.POST['phone_no']
+            postal_code = request.POST['postal_code']
+            delivery_person = request.POST['delivery_person']
+            Address.objects.filter(id=id).update(state=state, city=city, full_address=full_address, phone_no=phone_no,
+                                                delivery_person=delivery_person, postal_code=postal_code,)
+            return redirect('addresses')
+
+    context = {
+        'addresses': addresses,
+        'address': address,
+    }
+    return render(request, 'dashboard/edit_address.html', context)
 
 def factors_view(request):
     return render(request, 'dashboard/factors.html')
@@ -58,8 +106,8 @@ def fav_product_view(request, product_id):
         product.user_wishlist.remove(request.user)
     else:
         product.user_wishlist.add(request.user)
-    # return HttpResponseRedirect(request.META["HTTP_REFERE"])
-    return redirect(request.build_absolute_uri())
+
+    return redirect(request.META.get('HTTP_REFERER', '/'))
                 
     
     
