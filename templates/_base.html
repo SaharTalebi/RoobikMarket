@@ -330,7 +330,6 @@
                                                     <ul style="">
                                                         <li><a href="{% url 'products' %}?type=tile">محصولات <sup>(کاشی کاری)</sup></a></li>
                                                         <li><a href="{% url 'products' %}?type=list">محصولات <sup>(لیست)</sup></a></li>
-                                                        <li><a href="./products.html">جزئیات محصول</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="droopmenu-parent" aria-haspopup="true">
@@ -365,9 +364,9 @@
                                                     <a href="{% url 'personal_info' %}" aria-expanded="false">پروفایل کاربری<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
                                                     <ul style="">
                                                         <li><a href="{% url 'personal_info' %}">مشخصات کاربری</a></li>
-                                                        <li><a href="profile/factors.html">سفارشات</a></li>
-                                                        <li><a href="profile/addresses.html">آدرس ها</a></li>
-                                                        <li><a href="profile/favorites.html">علاقه مندی ها</a></li>
+                                                        <li><a href="{% url 'factors' %}">سفارشات</a></li>
+                                                        <li><a href="{% url 'addresses' %}">آدرس ها</a></li>
+                                                        <li><a href="{% url 'favorits' %}">علاقه مندی ها</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>

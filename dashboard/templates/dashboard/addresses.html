@@ -120,9 +120,17 @@
                                                         <div class="sub-title">{{address.phone_no}}</div>
                                                     </div>
                                                     <div class="col-12 col-sm-2 text-lg-end">
-                                                        <a href="{% url 'del_address' address.id %}" onclick="return confirm('آیا جهت حذف این آدرس اطمینان دارید؟')" class="float-right float-sm-left pr-2 pl-sm-2"><i class="fa fa-trash-alt font-weight-normal"></i></a>
-                                                        <a href="{% url 'edit_address' address.id %}" class="float-right float-sm-left"><i class="fa fa-edit font-weight-normal"></i></a>
-                                                        <a href="#" class="float-right float-sm-left ml-2" title="آدرس پیش فرض"><i class="fa fa-check-circle" style="color: #fcb941"></i></a>
+                                                        <a href="{% url 'del_address' address.id %}" 
+                                                            onclick="return confirm('آیا جهت حذف این آدرس اطمینان دارید؟')" 
+                                                            class="float-right float-sm-left pr-2 pl-sm-2">
+                                                            <i class="fa fa-trash-alt font-weight-normal"></i>
+                                                        </a>
+                                                        <a href="{% url 'edit_address' address.id %}" class="float-right float-sm-left">
+                                                            <i class="fa fa-edit font-weight-normal"></i>
+                                                        </a>
+                                                        {% comment %} <a href="#" class="float-right float-sm-left ml-2" title="آدرس پیش فرض">
+                                                            <i class="fa fa-check-circle" style="color: #fcb941"></i>
+                                                        </a> {% endcomment %}
                                                     </div>
                                                 </div>
                                             </div>

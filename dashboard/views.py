@@ -90,9 +90,6 @@ def edit_address_view(request, id):
     }
     return render(request, 'dashboard/edit_address.html', context)
 
-def factors_view(request):
-    return render(request, 'dashboard/factors.html')
-
 def favorites_view(request):
     fav_product = Product.objects.filter(user_wishlist=request.user)
     context = {

@@ -1,4 +1,4 @@
-{% load widget_tweaks %}
+{% comment %} {% load widget_tweaks %}
 
 {% for hidden_field in form.hidden_fields %}
   {{ hidden_field }}
@@ -35,4 +35,4 @@
       <small class="form-text text-muted">{{ field.help_text }}</small>
     {% endif %}
   </div>
-{% endfor %}
+{% endfor %} {% endcomment %}

@@ -9,8 +9,12 @@
                         <img src="{% static 'images/user-no-image.jpg' %}" class="rounded-circle">
                     </span>
                     <span class="col-7 col-sm-8 col-lg-7 pt-0 pt-sm-2 pt-md-3 pt-lg-0 align-self-center">
-                        <div id="full-name">{{info.person}}</div>
-                        <div class="mt-2" id="email-mobile">{{info.phone_number}}</div>
+                        {% if user.first_name or user.last_name %}
+                            <div id="full-name">{{user.first_name}} {{user.last_name}}</div>
+                        {% else %}
+                            <div id="full-name">{{user.email}}</div>
+                        {% endif %}
+                        <div class="mt-2" id="email-mobile">{{user.phone_no}}</div>
                     </span>
                 </span>
             </button>
@@ -19,30 +23,34 @@
             <div class="accordion-body">
                 <ul>
                     <li>
-                        <a href="{% url 'personal_info' %}" class="active">
+                        <a href="{% url 'personal_info' %}" >
                             <div>
-                                <div class="icon d-inline-block"><img src="{% static 'images/icons/profile-menu/profile.webp' %}" class="pl-2"></div> اطلاعات حساب
+                                <div class="icon d-inline-block"><img src="{% static 'images/icons/profile-menu/profile.webp' %}" class="pl-2"></div>
+                                 اطلاعات حساب
                             </div>
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'factors' %}">
+                        <a href="{% url 'factors' %}" >
                             <div>
-                                <div class="icon d-inline-block"><img src="{% static 'images/icons/profile-menu/orders.webp' %}" class="pl-2"></div> سفارش های من
+                                <div class="icon d-inline-block"><img src="{% static 'images/icons/profile-menu/orders.webp' %}" class="pl-2"></div> 
+                                سفارش های من
                             </div>
                         </a>
                     </li>
                     <li>
                         <a href="{% url 'favorits' %}">
                             <div>
-                                <div class="icon d-inline-block"><img src="{% static 'images/icons/profile-menu/favorites.webp' %}" class="pl-2"></div> علاقه مندی ها
+                                <div class="icon d-inline-block"><img src="{% static 'images/icons/profile-menu/favorites.webp' %}" class="pl-2"></div> 
+                                علاقه مندی ها
                             </div>
                         </a>
                     </li>
                     <li>
                         <a href="{% url 'addresses' %}">
                             <div>
-                                <div class="icon d-inline-block"><img src="{% static 'images/icons/profile-menu/addresses.webp' %}" class="pl-2"></div> آدرس های من
+                                <div class="icon d-inline-block"><img src="{% static 'images/icons/profile-menu/addresses.webp' %}" class="pl-2"></div> 
+                                آدرس های من
                             </div>
                         </a>
                     </li>
@@ -50,7 +58,8 @@
                     <li>
                         <a href="{% url 'account_logout' %}">
                             <div>
-                                <div class="icon d-inline-block"><img src="{% static 'images/icons/profile-menu/exit.webp' %}" class="pl-2"></div> خروج از حساب
+                                <div class="icon d-inline-block"><img src="{% static 'images/icons/profile-menu/exit.webp' %}" class="pl-2"></div> 
+                                خروج از حساب
                             </div>
                         </a>
                     </li>
