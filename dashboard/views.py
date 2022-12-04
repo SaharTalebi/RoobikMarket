@@ -25,6 +25,7 @@ def personal_info_view(request):
 def edit_personal_info_view(request):
     user = request.user
     form = PersonalInfoForm(request.POST or None, initial={'username': user})
+
     if request.method == 'POST':
         if form.is_valid:
             first_name = request.POST['first_name']
@@ -39,21 +40,21 @@ def edit_personal_info_view(request):
 
     return redirect('personal_info')
 
+
 def address_view(request):
     user = request.user
     addresses = Address.objects.filter(person=user)
     address_form = AddressForm(request.POST or None)
 
     if request.method == "POST":
+        default_address = request.POST['is_selected']
+
+        if default_address == 'true':
+            addresses.update(is_selected='false')
+
         if address_form.is_valid:
-            state = request.POST['state']
-            city = request.POST['city']
-            full_address = request.POST['full_address']
-            postal_code = request.POST['postal_code']
-            phone_no = request.POST['phone_no']
-            delivery_person = request.POST['delivery_person']
-            new_address = Address.objects.create(person=user, state=state, city=city, full_address=full_address, postal_code=postal_code,
-                                                 phone_no=phone_no, delivery_person=delivery_person)
+            new_address = address_form.save(commit=False)
+            new_address.person = user
             new_address.save()
             return redirect('addresses')
     context = {
@@ -62,26 +63,35 @@ def address_view(request):
     }
     return render(request, 'dashboard/addresses.html', context)
 
+
 def delete_address_view(request, id):
     address = get_object_or_404(Address, id=id)
     address.delete()
     return redirect('addresses')
 
+
 def edit_address_view(request, id):
     user = request.user
     addresses = Address.objects.filter(person=user)
     address = get_object_or_404(Address, id=id)
-    form = AddressForm(request.POST)
+    
     if request.method == "POST":
+        form = AddressForm(request.POST)
+        default_address = request.POST['is_selected']
+
+        if default_address == 'true':
+            addresses.exclude(id=id).update(is_selected='false')
+
         if form.is_valid():
-            state = request.POST['state']
-            city = request.POST['city']
-            full_address = request.POST['full_address']
-            phone_no = request.POST['phone_no']
-            postal_code = request.POST['postal_code']
-            delivery_person = request.POST['delivery_person']
-            Address.objects.filter(id=id).update(state=state, city=city, full_address=full_address, phone_no=phone_no,
-                                                delivery_person=delivery_person, postal_code=postal_code,)
+            Address.objects.filter(id=id).update(
+                city=request.POST['city'],
+                state=request.POST['state'],
+                phone_no=request.POST['phone_no'],
+                is_selected=request.POST['is_selected'],
+                postal_code=request.POST['postal_code'],
+                full_address=request.POST['full_address'],
+                delivery_person=request.POST['delivery_person'],
+                )
             return redirect('addresses')
 
     context = {
@@ -90,12 +100,14 @@ def edit_address_view(request, id):
     }
     return render(request, 'dashboard/edit_address.html', context)
 
+
 def favorites_view(request):
     fav_product = Product.objects.filter(user_wishlist=request.user)
     context = {
         'fav_product': fav_product,
     }
     return render(request, 'dashboard/favorits.html', context)
+
 
 def fav_product_view(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
@@ -105,6 +117,10 @@ def fav_product_view(request, product_id):
         product.user_wishlist.add(request.user)
 
     return redirect(request.META.get('HTTP_REFERER', '/'))
+
+
+def factors_view(request):
+    return render(request, 'dashboard/factors.html')
                 
     
     

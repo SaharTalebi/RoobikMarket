@@ -1,6 +1,9 @@
 from django.shortcuts import render
 
+from dashboard.models import Address
+
 # Create your views here.
 
-def factors_view(request):
-    return render(request, 'orders/factors.html')
+def checkout_view(request):
+    default_address = Address.objects.filter(is_selected='true')
+    return render(request, 'orders/checkout.html', {'default_address': default_address})

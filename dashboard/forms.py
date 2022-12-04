@@ -1,4 +1,3 @@
-from dataclasses import fields
 from django import forms
 
 from .models import Address
@@ -13,5 +12,5 @@ class PersonalInfoForm(forms.ModelForm):
 class AddressForm(forms.ModelForm):
     class Meta:
         model = Address
-        fields = ('state', 'city', 'full_address', 'postal_code', 'phone_no', 'delivery_person')
+        fields = ('state', 'city', 'full_address', 'postal_code', 'phone_no', 'delivery_person', 'is_selected')
 

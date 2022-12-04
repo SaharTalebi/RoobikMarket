@@ -5,4 +5,5 @@ from .models import Address
 @admin.register(Address)
 class AddressesAdmin(admin.ModelAdmin):
     model = Address
-    fields = ('person', 'state', 'city', 'full_address', 'postal_code', 'phone_no', 'delivery_person')
+    list_display = ('person', 'state', 'city', 'full_address', 'postal_code', 'phone_no', 'delivery_person', 'is_selected')
+    list_filter = ('person', 'state', 'city')

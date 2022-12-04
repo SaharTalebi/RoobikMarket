@@ -65,7 +65,7 @@ class Cart:
         return result
 
     def get_total_price(self):
-        return sum((item['quantity'] * item['product_obj'].price )for item in self.cart.values())
+        return sum((item['quantity'] * item['product_obj'].price )for item in self)
 
     def get_total_price_with_discount(self):
         return self.get_total_price() - self.total_discount()
