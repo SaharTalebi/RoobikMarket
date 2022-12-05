@@ -75,7 +75,10 @@ def product_detail_view(request, pk):
     product = get_object_or_404(Product, pk=pk)
     product_comment = ProductComment.objects.filter(product=product, is_active=True)
     comment_form = ProductCommentForm(request.POST or None)
-    fav_product = Product.objects.filter(user_wishlist=request.user)
+    if request.user.is_authenticated:
+        fav_product = Product.objects.filter(user_wishlist=request.user)
+    else: 
+        fav_product = None
 
     if request.method == 'POST':
         if comment_form.is_valid:

@@ -5,7 +5,7 @@ from .models import Product, ProductComment, Category, FeaturedProductCategory
 
 class CommentsInline(admin.TabularInline):
     model = ProductComment
-    fields = ['author', 'is_active']
+    fields = ['author', 'comment_body', 'is_active']
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):

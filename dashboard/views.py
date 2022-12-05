@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 from .forms import PersonalInfoForm, AddressForm
 from .models import Address
@@ -6,6 +7,7 @@ from accounts.models import CustomUser
 from product.models import Product
 
 
+@login_required
 def personal_info_view(request):
     user = request.user
     personal_info = CustomUser.objects.filter(username=user)
@@ -22,6 +24,7 @@ def personal_info_view(request):
     return render(request, 'dashboard/personal_info.html', context)
 
 
+@login_required
 def edit_personal_info_view(request):
     user = request.user
     form = PersonalInfoForm(request.POST or None, initial={'username': user})
@@ -41,6 +44,7 @@ def edit_personal_info_view(request):
     return redirect('personal_info')
 
 
+@login_required
 def address_view(request):
     user = request.user
     addresses = Address.objects.filter(person=user)
@@ -64,12 +68,14 @@ def address_view(request):
     return render(request, 'dashboard/addresses.html', context)
 
 
+@login_required
 def delete_address_view(request, id):
     address = get_object_or_404(Address, id=id)
     address.delete()
     return redirect('addresses')
 
 
+@login_required
 def edit_address_view(request, id):
     user = request.user
     addresses = Address.objects.filter(person=user)
@@ -101,6 +107,7 @@ def edit_address_view(request, id):
     return render(request, 'dashboard/edit_address.html', context)
 
 
+@login_required
 def favorites_view(request):
     fav_product = Product.objects.filter(user_wishlist=request.user)
     context = {
@@ -109,6 +116,7 @@ def favorites_view(request):
     return render(request, 'dashboard/favorits.html', context)
 
 
+@login_required
 def fav_product_view(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     if product.user_wishlist.filter(id=request.user.id).exists():
@@ -118,7 +126,7 @@ def fav_product_view(request, product_id):
 
     return redirect(request.META.get('HTTP_REFERER', '/'))
 
-
+@login_required
 def factors_view(request):
     return render(request, 'dashboard/factors.html')
                 

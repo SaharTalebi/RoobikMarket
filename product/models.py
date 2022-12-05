@@ -44,22 +44,29 @@ class Product(models.Model):
     )
 
     title = models.CharField(max_length=200)
-    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
-    featured_category = models.ManyToManyField(FeaturedProductCategory, related_name='products', blank=True)
     short_description = models.CharField(max_length=300, null=True, blank=True)
     description = RichTextField()
+
+    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
+    featured_category = models.ManyToManyField(FeaturedProductCategory, related_name='products', blank=True)
+
     product_image = models.ImageField(upload_to='product/')
     product_image1 = models.ImageField(upload_to='product/', null=True, blank=True)
     product_image2 = models.ImageField(upload_to='product/', null=True, blank=True)
     product_image3 = models.ImageField(upload_to='product/', null=True, blank=True)
+
     price = models.PositiveIntegerField()
     discount_price = models.PositiveIntegerField(null=True, blank=True)
+
     color = models.CharField(max_length=50, null=True, blank=True)
     warranty = models.CharField(max_length=50, choices=WARRANTY_CHOICES)
+    
     is_active = models.BooleanField(default=True)
     is_special_sale = models.BooleanField(default=False)
+
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
+
     user_wishlist = models.ManyToManyField(CustomUser, related_name='user_wishlist', blank=True)
 
     # Manager
