@@ -3,6 +3,8 @@ from django.contrib.auth.models import AbstractUser
 
 
 class CustomUser(AbstractUser):
+    # username = models.CharField(max_length=50, unique=False, blank=False)
+    # email = models.EmailField(unique=True, blank=False)
     first_name = models.CharField(max_length=100, blank=True)
     last_name = models.CharField(max_length=100, blank=True)
     phone_no = models.CharField(verbose_name='phone number', max_length=50, blank=True)

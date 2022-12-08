@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     
     'django.contrib.humanize',
 
@@ -48,6 +49,8 @@ INSTALLED_APPS = [
     'dashboard',
     'orders',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,6 +82,17 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -142,37 +156,23 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 ACCOUNT_FORMS = {
-    'login': 'accounts.forms.MyCustomLoginForm',
-    'signup': 'accounts.forms.MyCustomSignupForm',
+    'login': 'accounts.forms.CustomUserLoginForm',
+    'signup': 'accounts.forms.CustomUserSignupForm',
     }
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-AUTHENTICATION_BACKENDS = (
-
-    # Needed to login by username in Django admin, regardless of `allauth`
-    "django.contrib.auth.backends.ModelBackend",
-
-    # `allauth` specific authentication methods, such as login by e-mail
-    "allauth.account.auth_backends.AuthenticationBackend",
-)
-SITE_ID = 1
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
-ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
-ACCOUTN_AUTHENTICATION_METHOD = "email"
-SOCIALACCOUNT_LOGIN_ON_GET = True
-ACCOUNT_SESSION_REMEMBER = False
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 
 LOGIN_REDIRECT_URL = 'home'
-SIGNUP_REDIRECT_URL = 'home'
-
-
-
-
-
+SIGNUP_REDIRECT_URL = 'personal_info'
 
 
 
@@ -182,22 +182,22 @@ SIGNUP_REDIRECT_URL = 'home'
 
 # ACCOUNT_EMAIL_VERIFICATION = 'none'
 # Email Settings
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587 #this port is just for gmail
-EMAIL_HOST_USER = 's.talebi.sut@gmail.com'
-EMAIL_HOST_PASSWORD = 'wmwcfedtjkgszktm'
-EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587 #this port is just for gmail
+# EMAIL_HOST_USER = 's.talebi.sut@gmail.com'
+# EMAIL_HOST_PASSWORD = 'wmwcfedtjkgszktm'
+# EMAIL_USE_TLS = True
 
 
 
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
-    }
-}
+# SOCIALACCOUNT_PROVIDERS = {
+#     'google': {
+#         'SCOPE': [
+#             'profile',
+#             'email',
+#         ],
+#         'AUTH_PARAMS': {
+#             'access_type': 'online',
+#         }
+#     }
+# }

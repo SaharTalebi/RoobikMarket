@@ -27,6 +27,8 @@
         </div>
     </div>
 
+    {% include 'includes/messages.html' %}
+
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -223,30 +225,33 @@
                                             <div>انتخاب نحوه پرداخت</div>
                                         </div>
                                     </div>
-                                    <div class="row pb-2">
-                                        <div class="col-12 pb-2">
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="payment_type" checked>پرداخت آنلاین
-                                                </label>
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
+                                        <div class="row pb-2">
+                                            <div class="col-12 pb-2">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input type="radio" class="form-check-input" name="payment_type" checked>پرداخت آنلاین
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input type="radio" class="form-check-input" name="payment_type">ثبت فیش پرداخت/کارت به کارت
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="payment_type">ثبت فیش پرداخت/کارت به کارت
-                                                </label>
+                                            <div class="col-12 pb-2" id="rules">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input" name="accept_rules" value="1"><a href="#" target="_blank">قوانین و مقررات</a> را خواندم و قبول دارم.
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-success w-100">پرداخت و تکمیل خرید</button>
                                             </div>
                                         </div>
-                                        <div class="col-12 pb-2" id="rules">
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input" name="accept_rules" value="1"><a href="#" target="_blank">قوانین و مقررات</a> را خواندم و قبول دارم.
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <input type="submit" value="پرداخت و تکمیل خرید" class="btn btn-success w-100">
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
