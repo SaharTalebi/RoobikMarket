@@ -1,5 +1,6 @@
 venv/
 *.sqlite3
 .env
-static/img
+# static/img
 __pycache__/
+media/
