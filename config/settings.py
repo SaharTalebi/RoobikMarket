@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 
     # Third Party Apps
+    'rest_framework',
     'allauth',
     'allauth.account',
     'crispy_forms',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'jalali_date',
 
     # Local Apps
+    'api',
     'accounts',
     'pages',
     'blog',
