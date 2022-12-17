@@ -160,6 +160,8 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 ACCOUNT_FORMS = {
     'login': 'accounts.forms.CustomUserLoginForm',
     'signup': 'accounts.forms.CustomUserSignupForm',
+    'change_password': 'accounts.forms.CustomUserChangePasswordForm',
+    'reset_password': 'accounts.forms.CustomUserResetPasswordForm',
     }
 
 if DEBUG:
@@ -178,28 +180,12 @@ SIGNUP_REDIRECT_URL = 'personal_info'
 
 
 
-
-
-
-
-# ACCOUNT_EMAIL_VERIFICATION = 'none'
 # Email Settings
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587 #this port is just for gmail
-# EMAIL_HOST_USER = 's.talebi.sut@gmail.com'
-# EMAIL_HOST_PASSWORD = 'wmwcfedtjkgszktm'
-# EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587 #this port is just for gmail
+EMAIL_HOST_USER = 's.talebi.sut@gmail.com'
+EMAIL_HOST_PASSWORD = 'mhpdmfibbewtwoxi'
+EMAIL_USE_TLS = True
 
 
 
-# SOCIALACCOUNT_PROVIDERS = {
-#     'google': {
-#         'SCOPE': [
-#             'profile',
-#             'email',
-#         ],
-#         'AUTH_PARAMS': {
-#             'access_type': 'online',
-#         }
-#     }
-# }

@@ -73,6 +73,7 @@ def products_view(request):
 
 def product_detail_view(request, pk):
     product = get_object_or_404(Product, pk=pk)
+    same_category_products = Product.objects.filter(category=product.category)
     product_comment = ProductComment.objects.filter(product=product, is_active=True)
     comment_form = ProductCommentForm(request.POST or None)
     if request.user.is_authenticated:
@@ -93,5 +94,6 @@ def product_detail_view(request, pk):
         'comment_form': comment_form,
         'comments': product_comment,
         'fav_product': fav_product,
+        'same_category_products': same_category_products,
     }
     return render(request, 'product/product_detail.html', context)
