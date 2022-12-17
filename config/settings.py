@@ -183,8 +183,8 @@ SIGNUP_REDIRECT_URL = 'personal_info'
 # Email Settings
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587 #this port is just for gmail
-EMAIL_HOST_USER = 's.talebi.sut@gmail.com'
-EMAIL_HOST_PASSWORD = 'mhpdmfibbewtwoxi'
+EMAIL_HOST_USER = env('EMAIL_ADDRESS')
+EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
 EMAIL_USE_TLS = True
 
 
