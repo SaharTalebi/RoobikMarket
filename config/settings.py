@@ -178,7 +178,11 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 LOGIN_REDIRECT_URL = 'home'
 SIGNUP_REDIRECT_URL = 'personal_info'
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
 
 # Email Settings
 EMAIL_HOST = 'smtp.gmail.com'

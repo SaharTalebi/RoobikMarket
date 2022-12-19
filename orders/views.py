@@ -8,7 +8,8 @@ from dashboard.models import Address
 
 @login_required
 def checkout_view(request):
-    default_address = Address.objects.filter(is_selected='true')
+    user = request.user
+    default_address = Address.objects.filter(person=user, is_selected='true')
     context = {
         'default_address': default_address
         }

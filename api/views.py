@@ -1,6 +1,8 @@
-from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView, ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
-from .serializers import BlogPostSerializer
+from .serializers import BlogPostSerializer, UsersSerializer
+from .permissions import IsSuperUser, IsAdminUser
+from accounts.models import CustomUser
 from blog.models import BlogPost
 
 
@@ -12,3 +14,14 @@ class BlogPostView(ListAPIView):
 class BlogPostDetailView(RetrieveAPIView):
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
+
+
+class UsersListView(ListCreateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UsersSerializer
+    permission_classes = (IsAdminUser,)
+
+class UserDetailView(RetrieveUpdateDestroyAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UsersSerializer
+    permission_classes = (IsSuperUser,)
