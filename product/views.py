@@ -6,14 +6,14 @@ from .models import Product, ProductComment, Category
 
 
 def products_view(request):
-    page_type = request.GET.get('type', 'tile')
-    page_value = request.GET.get('value', 'newest')
     products = Product.active_product.all()
     categories = Category.objects.filter(parent=None)
-
+    page_type = request.GET.get('type', 'tile')
+    page_value = request.GET.get('value', 'newest')
     query = request.GET.get('query', '')
+
     if query:
-        products = Product.objects.filter(Q(title__icontains=query) | Q(description__icontains=query))
+        products = Product.active_product.filter(Q(title__icontains=query) | Q(description__icontains=query))
     
     if request.method == "POST":
         my_checkbox_list = request.POST.getlist('mycheckbox')

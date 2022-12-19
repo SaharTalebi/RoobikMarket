@@ -94,9 +94,7 @@
                                 </div>
                                 <div class="details p-3">
                                     <div class="category">
-                                        <a href="{% url 'product_detail' featured.id %}">گوشی موبایل</a>
-                                        &nbsp;/&nbsp;
-                                        <a href="{% url 'product_detail' featured.id %}">سامسونگ</a>
+                                        <a href="{% url 'product_detail' featured.id %}">{{featured.category}}</a>
                                     </div>
                                     <a href="{% url 'product_detail' featured.id %}"><h2>{{featured.title}}</h2></a>
                                     <div class="price">{{featured.price | intcomma}} تومان</div>
@@ -129,9 +127,7 @@
                                 </a>
                                 <div class="details p-3">
                                     <div class="category">
-                                        <a href="{% url 'product_detail' on_sale.id %}">گوشی موبایل</a>
-                                        &nbsp;/&nbsp;
-                                        <a href="{% url 'product_detail' on_sale.id %}">سامسونگ</a>
+                                        <a href="{% url 'product_detail' on_sale.id %}">{{on_sale.category}}</a>
                                     </div>
                                     <a href="{% url 'product_detail' on_sale.id %}"><h2>{{on_sale.title}}</h2></a>
                                     <div>
@@ -175,9 +171,7 @@
                                 </div>
                                 <div class="details p-3">
                                     <div class="category">
-                                        <a href="{% url 'product_detail' most_visited.id %}">گوشی موبایل</a>
-                                        &nbsp;/&nbsp;
-                                        <a href="{% url 'product_detail' most_visited.id %}">سامسونگ</a>
+                                        <a href="{% url 'product_detail' most_visited.id %}">{{most_visited.category}}</a>
                                     </div>
                                     <a href="{% url 'product_detail' most_visited.id %}"><h2>{{most_visited.title}}</h2></a>
                                     <div class="price">{{most_visited.price | intcomma}} تومان</div>
@@ -262,9 +256,7 @@
                         </a>
                         <div class="details p-3">
                             <div class="category">
-                                <a href="{% url 'product_detail' special_sale.id %}">گوشی موبایل</a>
-                                &nbsp;/&nbsp;
-                                <a href="{% url 'product_detail' special_sale.id %}">سامسونگ</a>
+                                <a href="{% url 'product_detail' special_sale.id %}">{{special_sale.category}}</a>
                             </div>
                             <a href="{% url 'product_detail' special_sale.id %}"><h2>{{special_sale.title}}</h2></a>
                             <div>
@@ -358,7 +350,7 @@
                                 <a href="{{mobile.get_absolute_url}}">{{mobile.category}}</a>
                             </div>
                             <a href="{{mobile.get_absolute_url}}"><h2>{{mobile.title}}</h2></a>
-                            <div class="price">{{mobile.price}} تومان</div>
+                            <div class="price">{{mobile.price | intcomma}} تومان</div>
                             <div class="rate">
                                 <i class="fa fa-star-half-alt"></i>
                                 <i class="fa fa-star"></i>
@@ -394,7 +386,7 @@
                                 <a href="{{laptop.get_absolute_url}}">{{laptop.category}}</a>
                             </div>
                             <a href="{{laptop.get_absolute_url}}"><h2>{{laptop.title}}</h2></a>
-                            <div class="price">{{laptop.price}} تومان</div>
+                            <div class="price">{{laptop.price | intcomma}} تومان</div>
                             <div class="rate">
                                 <i class="fa fa-star-half-alt"></i>
                                 <i class="fa fa-star"></i>
@@ -430,7 +422,7 @@
                                 <a href="{{accessory.get_absolute_url}}">{{accessory.category}}</a>
                             </div>
                             <a href="{{accessory.get_absolute_url}}"><h2>{{accessory.title}}</h2></a>
-                            <div class="price">{{accessory.price}} تومان</div>
+                            <div class="price">{{accessory.price | intcomma}} تومان</div>
                             <div class="rate">
                                 <i class="fa fa-star-half-alt"></i>
                                 <i class="fa fa-star"></i>
@@ -466,7 +458,7 @@
                                 <a href="{{camera.get_absolute_url}}">{{camera.category}}</a>
                             </div>
                             <a href="{{camera.get_absolute_url}}"><h2>{{camera.title}}</h2></a>
-                            <div class="price">{{camera.price}} تومان</div>
+                            <div class="price">{{camera.price | intcomma}} تومان</div>
                             <div class="rate">
                                 <i class="fa fa-star-half-alt"></i>
                                 <i class="fa fa-star"></i>
