@@ -1,22 +1,18 @@
 from pathlib import Path
-# from environs import Env
+from environs import Env
 
-# env = Env()
-# env.read_env()
+env = Env()
+env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = env('DJANGO_SECRET_KEY')
-
-SECRET_KEY = 'django-insecure-c7=+cq#1exktw2p+$%1rvnm-g0#x$a(pgqqp%s1)@5!0qn3w6_'
+SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = env.bool("DJANGO_DEBUG")
-
-DEBUG = True
+DEBUG = env.bool("DJANGO_DEBUG")
 
 ALLOWED_HOSTS = []
 
