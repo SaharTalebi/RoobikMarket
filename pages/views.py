@@ -1,9 +1,10 @@
 from django.shortcuts import render
+from django.views import generic
 from django.db.models import Q
 
 from .forms import ContactUsForm
-from product.models import Product
 from blog.models import BlogPost
+from product.models import Product
 
 # Create your views here.
 
@@ -76,11 +77,11 @@ def contact_us_view(request):
     }
     return render(request, 'pages/contact.html', context)
 
-def faq_view(request):
-    return render(request, 'pages/faq.html')
+class FaqView(generic.TemplateView):
+    template_name = 'pages/faq.html'
 
-def error_404_view(request):
-    return render(request, 'pages/error404.html')
+class Error404View(generic.TemplateView):
+    template_name = 'pages/error404.html'
 
-def about_us_view(request):
-    return render(request, 'pages/about.html')
+class AboutUsView(generic.TemplateView):
+    template_name = 'pages/about.html'

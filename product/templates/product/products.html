@@ -71,9 +71,7 @@
                                                     <a href="{{product.get_absolute_url}}"><div class="image" style="background-image: url({{product.product_image.url}});"></div></a>
                                                     <div class="details p-3">
                                                         <div class="category">
-                                                            <a href="{{product.get_absolute_url}}">گوشی موبایل</a>
-                                                            &nbsp;/&nbsp;
-                                                            <a href="{{product.get_absolute_url}}">سامسونگ</a>
+                                                            <a href="{{product.get_absolute_url}}">{{product.category}}</a>
                                                         </div>
                                                         <a href="{{product.get_absolute_url}}"><h2>{{product.title}}</h2></a>
                                                         <div class="price">{{product.price | intcomma}} تومان</div>

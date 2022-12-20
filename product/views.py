@@ -19,7 +19,9 @@ def products_view(request):
         my_checkbox_list = request.POST.getlist('mycheckbox')
 
         if 'کالای دیجیتال' in my_checkbox_list:
-            digit_list = Category.objects.filter(Q(name='کالای دیجیتال') | Q(parent__name='کالای دیجیتال') | Q(parent__name__in=['صوت','تصویر','کامپیوتر','گوشی موبایل'])).values_list('name')
+            digit_list = Category.objects.filter(
+                Q(name='کالای دیجیتال') | Q(parent__name='کالای دیجیتال') | 
+                Q(parent__name__in=['صوت','تصویر','کامپیوتر','گوشی موبایل'])).values_list('name')
             products = Product.active_product.filter(category__name__in = digit_list)
 
         elif 'مد و پوشاک' in my_checkbox_list:
