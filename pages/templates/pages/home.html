@@ -2,6 +2,7 @@
 
 {% load static %}
 {% load humanize %}
+{% load jalali_tags %}
 
 {% block title %}خانه{% endblock title %}
 
@@ -506,7 +507,7 @@
                     <div class="blog-post-box" data-aos="fade-up" data-aos-duration="1000">
                         <a href="{% url 'blog_post_detail' post.id %}"><div class="post-image" style="background-image: url('{{post.blog_image.url}}')"></div></a>
                         <div class="details py-3 px-4">
-                            <div class="post-date">ارسال شده در {{post.datetime_modified}}</div>
+                            <div class="post-date">ارسال شده در {{post.datetime_modified | to_jalali:'%Y/%m/%d'}}</div>
                             <a href="{% url 'blog_post_detail' post.id %}">
                                 <h2 class="post-title">{{post.title}}</h2>
                             </a>

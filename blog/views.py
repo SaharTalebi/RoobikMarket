@@ -1,15 +1,15 @@
+from django.views import generic
 from django.shortcuts import render, get_object_or_404
 
-from .models import BlogPost, BlogComment
 from .forms import CommentForm
+from .models import BlogPost, BlogComment
 # Create your views here.
 
-def blog_list_view(request):
-    blog_posts = BlogPost.objects.all().order_by('-datetime_created')
-    context = {
-        'posts': blog_posts,
-    }
-    return render(request, 'blog/blog.html', context)
+class BlogListView(generic.ListView):
+    queryset = BlogPost.objects.all().order_by('-datetime_created')
+    template_name = 'blog/blog.html'
+    context_object_name = 'posts'
+
 
 def blog_post_detail_view(request, pk):
     post_detail = get_object_or_404(BlogPost, pk=pk)

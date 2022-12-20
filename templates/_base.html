@@ -122,27 +122,26 @@
                                                                     <div class="droopmenu-row">
                                                                         <ul class="droopmenu-col droopmenu-col4">
                                                                             <li><h4>گوشی موبایل</h4></li>
-                                                                            <li><a href="./products.html">گوشی موبایل</a></li>
-                                                                            <li><a href="./products.html">تبلت</a></li>
-                                                                            {% comment %} <li><a href="./products.html">کیف و کاور</a></li> {% endcomment %}
-                                                                            <li><a href="./products.html">جانبی موبایل</a></li>
+                                                                            <li><a href="./products.html">گوشی موبایل</a>
+                                                                            {% for mobile in mobiles %}
+                                                                                <li><a href="./products.html">{{mobile.name}}</a></li>
+                                                                            {% endfor %}
+
                                                                             <li><h4>صوت</h4></li>
-                                                                            <li><a href="./products.html">رادیو دیجیتال</a></li>
-                                                                            <li><a href="./products.html">ضبط صوت</a></li>
-                                                                            <li><a href="./products.html">اسپیکر</a></li>
-                                                                            <li><a href="./products.html">هدفون و میکروفن</a></li>
+                                                                            {% for voice in voices %}
+                                                                                <li><a href="./products.html">{{voice.name}}</a></li>
+                                                                            {% endfor %}
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4">
                                                                             <li><h4>کامپیوتر</h4></li>
-                                                                            <li><a href="./products.html">لب تاپ</a></li>
-                                                                            <li><a href="./products.html">نوت بوک</a></li>
-                                                                            <li><a href="./products.html">کامپیوتر رومیزی</a></li>
-                                                                            <li><a href="./products.html">جانبی کامپیوتر</a></li>
+                                                                            {% for computer in computers %}
+                                                                                <li><a href="./products.html">{{computer.name}}</a></li>
+                                                                            {% endfor %}
+
                                                                             <li><h4>تصویر</h4></li>
-                                                                            {% comment %} <li><a href="products.html">ال سی دی</a></li> {% endcomment %}
-                                                                            <li><a href="products.html">تلویزیون</a></li>
-                                                                            <li><a href="products.html">گیرنده دیجیتال</a></li>
-                                                                            <li><a href="products.html">دوربین</a></li>
+                                                                            {% for video in videos %}
+                                                                                <li><a href="products.html">{{video.name}}</a></li>
+                                                                            {% endfor %}
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
                                                                             <li><img src="{% static 'images/megamenu/megamenu-image1.png' %}" alt=""></li>
@@ -157,25 +156,15 @@
                                                                     <div class="droopmenu-row">
                                                                         <ul class="droopmenu-col droopmenu-col4">
                                                                             <li><h4>مبلمان</h4></li>
-                                                                            <li><a href="./products.html">مبلمان اتاق</a></li>
-                                                                            <li><a href="./products.html">مبل تکی</a></li>
-                                                                            <li><a href="./products.html">مبلمان کودک</a></li>
-                                                                            <li><a href="./products.html">میز ناهارخوری</a></li>
-                                                                            <li><a href="./products.html">مبلمان اداری</a></li>
-                                                                            <li><a href="./products.html">مبل تخت شو</a></li>
-                                                                            <li><a href="./products.html">مبلمان راحتی</a></li>
-                                                                            <li><a href="./products.html">گل میز</a></li>
+                                                                            {% for furniture in furniture %}
+                                                                                <li><a href="./products.html">{{furniture.name}}</a></li>
+                                                                            {% endfor %}
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4">
                                                                             <li><h4>دکوراسیون</h4></li>
-                                                                            <li><a href="./products.html">تابلوهای دکوری</a></li>
-                                                                            <li><a href="./products.html">استیکر</a></li>
-                                                                            <li><a href="./products.html">دیوارپوش</a></li>
-                                                                            <li><a href="./products.html">کاغذ دیواری</a></li>
-                                                                            <li><a href="./products.html">کفپوش</a></li>
-                                                                            <li><a href="./products.html">موکت</a></li>
-                                                                            <li><a href="./products.html">لوستر</a></li>
-                                                                            <li><a href="./products.html">لوازم دکوری</a></li>
+                                                                            {% for decoration in decoration %}
+                                                                                <li><a href="./products.html">{{decoration.name}}</a></li>
+                                                                            {% endfor %}
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
                                                                             <li><img src="{% static 'images/megamenu/megamenu-image2.png' %}" alt=""></li>
@@ -190,27 +179,15 @@
                                                                     <div class="droopmenu-row">
                                                                         <ul class="droopmenu-col droopmenu-col4">
                                                                             <li><h4>مردانه</h4></li>
-                                                                            <li><a href="products.html">شلوار</a></li>
-                                                                            <li><a href="products.html">پیراهن</a></li>
-                                                                            <li><a href="products.html">تیشرت</a></li>
-                                                                            <li><a href="products.html">کفش</a></li>
-                                                                            <li><a href="products.html">کلاه</a></li>
-                                                                            <li><a href="products.html">کمربند</a></li>
-                                                                            <li><a href="products.html">عینک</a></li>
-                                                                            <li><a href="products.html">ساعت</a></li>
-                                                                            <li><a href="products.html">لباس زیر</a></li>
+                                                                            {% for men in men_clothing %}
+                                                                                <li><a href="products.html">{{men.name}}</a></li>
+                                                                            {% endfor %}
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4">
                                                                             <li><h4>زنانه</h4></li>
-                                                                            <li><a href="products.html">روسری</a></li>
-                                                                            <li><a href="products.html">چادر</a></li>
-                                                                            <li><a href="products.html">مانتو</a></li>
-                                                                            <li><a href="products.html">شلوار</a></li>
-                                                                            <li><a href="products.html">ساپورت</a></li>
-                                                                            <li><a href="products.html">تی شرت</a></li>
-                                                                            <li><a href="products.html">عینک</a></li>
-                                                                            <li><a href="products.html">ساعت</a></li>
-                                                                            <li><a href="products.html">لباس زیر</a></li>
+                                                                            {% for ladies in ladies_clothing %}
+                                                                                <li><a href="products.html">{{ladies.name}}</a></li>
+                                                                            {% endfor %}
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4 d-none d-lg-inline-block">
                                                                             <li><img src="{% static 'images/megamenu/megamenu-image3.png' %}" alt=""></li>
@@ -233,7 +210,6 @@
                                                                             <li><a href="./products.html">ساز دهنی</a></li>
                                                                             <li><a href="./products.html">گیتار برقی</a></li>
                                                                             <li><a href="./products.html">درام</a></li>
-                                                                            <li><a href="./products.html">تجهیزات استدیو</a></li>
                                                                             <li><a href="./products.html">جانبی موسیقی</a></li>
                                                                         </ul>
                                                                         <ul class="droopmenu-col droopmenu-col4">
@@ -241,7 +217,6 @@
                                                                             <li><a href="./products.html">کالاهای مسی</a></li>
                                                                             <li><a href="./products.html">معرق</a></li>
                                                                             <li><a href="./products.html">سفال</a></li>
-                                                                            <li><a href="./products.html">لعلینه</a> </li>
                                                                             <li><a href="./products.html">محصولات چرمی</a></li>
                                                                             <li><a href="./products.html">تابلو و ساعت</a></li>
                                                                             <li><a href="./products.html">میناکاری</a></li>
@@ -343,19 +318,17 @@
                                                     <a href="{% url 'blog' %}" aria-expanded="false">بلاگ آموزشی<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
                                                     <ul style="">
                                                         <li><a href="{% url 'blog' %}">آرشیو مطالب</a></li>
-                                                        <li><a href="{% url 'blog' %}">داخلی بلاگ</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="droopmenu-parent" aria-haspopup="true">
                                                     <a href="#" aria-expanded="false">سایر صفحات<em class="droopmenu-topanim"></em></a><div class="dm-arrow"></div>
                                                     <ul style="">
-                                                        <li><a href="./compare.html">مقایسه محصول</a></li>
                                                         <li><a href="{% url 'cart:cart' %}">سبد خرید</a></li>
                                                         <li><a href="{% url 'checkout' %}">پیش فاکتور</a></li>
                                                         <li class="dm-bottom-separator"></li>
                                                         <li><a href="{% url 'account_login' %}">ورود به سایت</a></li>
                                                         <li><a href="{% url 'account_signup' %}">عضویت در سایت</a></li>
-                                                        <li><a href="./reset-password.html">بازگردانی رمز عبور</a></li>
+                                                        <li><a href="{% url 'account_reset_password' %}">بازگردانی رمز عبور</a></li>
                                                         <li class="dm-bottom-separator"></li>
                                                         <li><a href="{% url 'error404' %}">خطای 404</a></li>
                                                     </ul>

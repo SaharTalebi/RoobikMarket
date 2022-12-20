@@ -1,27 +1,27 @@
 from pathlib import Path
-from environs import Env
+# from environs import Env
 
-env = Env()
-env.read_env()
+# env = Env()
+# env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('DJANGO_SECRET_KEY')
+# SECRET_KEY = env('DJANGO_SECRET_KEY')
+
+SECRET_KEY = 'django-insecure-c7=+cq#1exktw2p+$%1rvnm-g0#x$a(pgqqp%s1)@5!0qn3w6_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DJANGO_DEBUG")
+# DEBUG = env.bool("DJANGO_DEBUG")
+
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -80,6 +80,7 @@ TEMPLATES = [
 
                 # Custom Context Processors
                 'cart.context_processors.cart',
+                'pages.context_processors.base_view',
             ],
         },
     },
@@ -185,11 +186,11 @@ REST_FRAMEWORK = {
 }
 
 # Email Settings
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587 #this port is just for gmail
-EMAIL_HOST_USER = env('EMAIL_ADDRESS')
-EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
-EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587 #this port is just for gmail
+# EMAIL_HOST_USER = env('EMAIL_ADDRESS')
+# EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
+# EMAIL_USE_TLS = True
 
 
 
